@@ -39,11 +39,11 @@ Now, we need to set our two Themes to be used by HomeAssistant as Light and Dark
 To do this, we have two options.
 
 The first one, is supported only by Browser with dark mode detection:
-    - Go to Developer Tools;
-    - Select Services
-    - Find the service called ```frontend.set_theme```
-    - Insert the followinf data:
-    ```name: Clear #or the name of your theme
-        mode: light```
+- Go to Developer Tools;
+- Select Services
+- Find the service called ```frontend.set_theme```
+- Insert the followinf data:
+```name: Clear #or the name of your theme
+    mode: light```
 
 The way how to use those two themes, is also well explained by @N-l1 on his thread of [SoftUI](https://github.com/N-l1/lovelace-soft-ui).
