@@ -33,7 +33,7 @@ views:
       grid-template-columns: 7% auto 23%
       grid-template-rows: 100%
       grid-template-areas: |
-        "sidebarsx main sidebardx"
+        "sidebarleft main sidebarright"
     badges: []
     cards:
 #####################################################################################################################################################
@@ -44,7 +44,7 @@ views:
 
       - type: custom:stack-in-card #Used to apply styling, as Card-Mod doesn't work on Vertical-Stack
         layout:
-          grid-area: sidebarsx
+          grid-area: sidebarleft
         card_mod:
           style: |
             ha-card {
@@ -736,7 +736,7 @@ views:
 
       - type: custom:stack-in-card #We need the Stack-in-Card only for the colo background (for some reason it doesn't work on layout-card-gridder)
         layout:
-          grid-area: sidebardx
+          grid-area: sidebarright
         card_mod:
           style: |
             ha-card {
@@ -1144,7 +1144,7 @@ views:
       grid-template-columns: 7% auto 23%
       grid-template-rows: 100%
       grid-template-areas: |
-        "sidebarsx main sidebardx"
+        "sidebarleft main sidebarright"
     badges: []
     cards:
 
@@ -1156,7 +1156,7 @@ views:
 
       - type: custom:stack-in-card
         layout:
-          grid-area: sidebarsx
+          grid-area: sidebarleft
         card_mod:
           style: |
             ha-card {
@@ -1816,7 +1816,7 @@ views:
 
       - type: custom:stack-in-card #We need the Stack-in-Card only for the colo background (for some reason it doesn't work on layout-card-gridder)
         layout:
-          grid-area: sidebardx
+          grid-area: sidebarright
         card_mod:
           style: |
             ha-card {
@@ -2223,7 +2223,7 @@ views:
       grid-template-columns: 7% 70% 23%
       grid-template-rows: 100%
       grid-template-areas: |
-        "sidebarsx main sidebardx"
+        "sidebarleft main sidebarright"
     badges: []
     cards:
 
@@ -2235,7 +2235,7 @@ views:
 
       - type: custom:stack-in-card
         layout:
-          grid-area: sidebarsx
+          grid-area: sidebarleft
         card_mod:
           style: |
             ha-card {
@@ -2913,7 +2913,7 @@ views:
 
       - type: custom:stack-in-card #We need the Stack-in-Card only for the colo background (for some reason it doesn't work on layout-card-gridder)
         layout:
-          grid-area: sidebardx
+          grid-area: sidebarright
         card_mod:
           style: |
             ha-card {
