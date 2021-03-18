@@ -52,7 +52,9 @@ The first one, is supported only by Browser with dark mode detection:
     name: slate #or the name of your dark theme
       mode: dark ``` 
  
-The second one uses an automation used to switch the Light and Dark themes:
+The second one uses an automation to switch the Light and Dark themes:
+<details><summary><b>Show automation code</b></summary>
+    
 ```yaml
 automation:
   - id: set_theme_ndrui
@@ -81,5 +83,26 @@ automation:
           data:
             name: slate
 ```
+</details>
 
-The way how to use those two themes, is also well explained by @N-l1 on his thread of [SoftUI](https://github.com/N-l1/lovelace-soft-ui).
+### Card Mod and Button Cards
+
+To apply our new style, we need to use the following code for each card:
+
+```yaml
+style: |
+  ha-card {
+      background-color: var(--primary-background-color);
+      border-radius: 15px;
+      margin: 10px;
+      box-shadow:
+        {% if is_state('sun.sun', 'above_horizon') %}
+          -4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);
+        {% elif is_state('sun.sun', 'below_horizon') %}
+          -5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08);
+        {% endif %}
+   }
+```
+Notice that this is the minimum code you need to apply the style, but of course you can customize it with more variables.
+
+The way how to use those themes and button cards, is also well explained by @N-l1 on his thread of [SoftUI](https://github.com/N-l1/lovelace-soft-ui).
