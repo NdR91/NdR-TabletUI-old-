@@ -134,7 +134,29 @@ You also will see a grid template inside the 3 zones. This is used on the Main a
 <details><summary><b>Main area config:</b></summary>
 
 ```yaml
-- type: custom:stack-in-card #We need the Stack-in-Card only to apply the background color (for some reason it doesn't work on layout-card)
+- type: vertical-stack
+  layout:
+      grid-area: main #The position of this card
+  cards:
+      - type: vertical-stack
+      cards:
+        - type: 'custom:layout-card'
+          layout_type: grid
+          layout_options:
+              grid-template-columns: 40% 60%
+              grid-template-rows: 
+              grid-template-areas: |
+                "wheater calendar"
+                "climate camera"
+                "power power"
+          cards:
+```
+</details>
+
+<details><summary><b>Right Sidebar config:</b></summary>
+
+```yaml
+- type: custom:stack-in-card #We need the Stack-in-Card only to apply the background color
   layout:
       grid-area: sidebarright #The position of this card
   card_mod:
@@ -152,7 +174,7 @@ You also will see a grid template inside the 3 zones. This is used on the Main a
           grid-template-areas: |
           "free1 sidebar"
           "graph graph"
-     cards:
+      cards:
 ```
 </details>
 
