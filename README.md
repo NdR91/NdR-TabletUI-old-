@@ -7,19 +7,19 @@ This UI is based on the following custom components:
 
 Essential:
 
-- [Layout Card](https://github.com/thomasloven/lovelace-layout-card)
-- [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
-- [Button Card](https://github.com/custom-cards/button-card)
-- [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
+[x] [Layout Card](https://github.com/thomasloven/lovelace-layout-card)
+[x] [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
+[x] [Button Card](https://github.com/custom-cards/button-card)
+[x] [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
 
 Optional: 
 
-- [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
-- [Flexible Horseshoe Card](https://github.com/AmoebeLabs/flex-horseshoe-card)
-- [Light Popup Card](https://github.com/DBuit/light-popup-card)
-- [Stack In Card](https://github.com/custom-cards/stack-in-card)
-- [Atomic Calendar Revive](https://github.com/marksie1988/atomic-calendar-revive)
-- [Mini Climate Card](https://github.com/artem-sedykh/mini-climate-card)
+[ ] [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
+[ ] [Flexible Horseshoe Card](https://github.com/AmoebeLabs/flex-horseshoe-card)
+[ ] [Light Popup Card](https://github.com/DBuit/light-popup-card)
+[ ] [Stack In Card](https://github.com/custom-cards/stack-in-card)
+[ ] [Atomic Calendar Revive](https://github.com/marksie1988/atomic-calendar-revive)
+[ ] [Mini Climate Card](https://github.com/artem-sedykh/mini-climate-card)
 
 ## Getting Started
 
@@ -194,7 +194,7 @@ popup_cards: !include NdRUI/ndrui_tablet_popup.yaml # <--- Use your path
 views: 
 ```
 
-In order to use a popup, you need to add the following lines to the card:
+In order to use a popup, you need to add the following code to the card:
 
 ```yaml
 tap_action:
@@ -227,3 +227,15 @@ card:
   cards: 
     < Card...
   ```
+  More info on Popups are available on [Browser Mod](https://github.com/thomasloven/hass-browser_mod) page.
+
+### Floorplan
+
+Creating a floorplan is quite long to explain. I suggest to see the [lukevink](https://github.com/lukevink/hass-config-lajv) page to have a full explanation of the whole procedure.
+
+Here I will give a quick cue:
+
+1- Create your floorplan with SweetHome3d - I suggest this [Guide](https://aarongodfrey.dev/home%20automation/tips_for_creating_a_3d_floorplan_using_sweethome3d/) to figure out how to do it;
+2- Using SweetHome3D, choose a good positioning to save some pictures of your floorplan - Use the previous guide, section [Rendering](https://aarongodfrey.dev/home%20automation/tips_for_creating_a_3d_floorplan_using_sweethome3d/#rendering). You will need the following pictures:
+
+- One pic with your floorplan during daytime (Note: this is the only one Pic which is optional)
