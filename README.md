@@ -26,7 +26,7 @@ Optional:
 First of all, we need to set-up two themes (Light and Dark mode). You can create your own or use both [Clear](https://github.com/naofireblade/clear-theme) and [Slate](https://github.com/seangreen2/slate_theme) you find in this repo.
 If you want to create your own theme, be sure to set the following values:
 
-```
+```yaml
 background-color:
 background-sidebar-sx:
 primary-background-color: 'var(--background-color)'
@@ -44,9 +44,42 @@ The first one, is supported only by Browser with dark mode detection:
 - Select Services;
 - Find the service called ```frontend.set_theme```;
 - Insert the following data:
-```
-name: Clear #or the name of your theme
-    mode: light
+    ```yaml
+    name: clear #or the name of your light theme
+      mode: light ```
+- Reteat the same with the following data:
+    ```yaml
+    name: slate #or the name of your dark theme
+      mode: dark ``` 
+ 
+The second one uses an automation used to switch the Light and Dark themes:
+```yaml
+automation:
+  - id: set_theme_ndrui
+    alias: 'Frontend: Set NdRUI Theme'
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sun.sun
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: sun.sun
+          state: "above_horizon"
+        sequence:
+        - service: frontend.set_theme
+          data:
+            name: clear
+      - conditions:
+        - condition: state
+          entity_id: sun.sun
+          state: "below_horizon"
+        sequence:
+        - service: frontend.set_theme
+          data:
+            name: slate
 ```
 
 The way how to use those two themes, is also well explained by @N-l1 on his thread of [SoftUI](https://github.com/N-l1/lovelace-soft-ui).
