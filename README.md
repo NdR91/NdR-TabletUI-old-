@@ -10,6 +10,7 @@ Essential:
 - [Layout Card](https://github.com/thomasloven/lovelace-layout-card)
 - [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
 - [Button Card](https://github.com/custom-cards/button-card)
+- [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
 
 Optional: 
 
@@ -180,3 +181,49 @@ You also will see a grid template inside the 3 zones. This is used on the Main a
 
 You can go deeper on how the Grid Layout works on the [Layout Card](https://github.com/thomasloven/lovelace-layout-card) page.
 
+### Popups
+
+Currently, popups are a work in progress, due to the fact that recently the custom component was updated with some new features wich will be added to this UI.
+Further update will become available soon, but meanwhile you an use this setup to get it working.
+
+The first few lines of the UI, must contain the path where you will store your popup cards:
+
+```yaml
+title: Home 
+popup_cards: !include NdRUI/ndrui_tablet_popup.yaml # <--- Use your path
+views: 
+```
+
+In order to use a popup, you need to add the following lines to the card:
+
+```yaml
+tap_action:
+  action: call-service
+  service: browser_mod.popup
+  service_data: !include NdRUI_Tablet_Popup/clima.yaml # <--- Use your path
+```
+
+The popup itself is another view, with the usual configuration:
+
+```yaml
+title: Clima
+style:  # This is the style applied for this UI
+  $: |
+    .mdc-dialog {
+      backdrop-filter: blur(17px);
+      -webkit-backdrop-filter: blur(17px);
+      background: rgba(0,0,0,0.25);
+    }
+    .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+      background: none !important;
+      box-shadow: none;
+      border-radius: 0px;
+    }
+hide_header: true
+auto_close: false
+large: true
+card:
+  type: vertical-stack
+  cards: 
+    < Card...
+  ```
