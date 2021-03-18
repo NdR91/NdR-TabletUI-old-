@@ -1,0 +1,3294 @@
+title: Home 
+
+####################### POPUPS #######################
+
+popup_cards: !include NdRUI/ndrui_tablet_popup.yaml
+
+views: 
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+                               ######################################################################
+                               ##                                                                  ##
+                               ##                            HOME VIEW                             ##
+                               ##                                                                  ##
+                               ######################################################################
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+  - title: Home
+    path: home
+    icon: 'mdi:home-roof'
+    panel: false
+    type: custom:grid-layout
+    layout:
+      grid-template-columns: 7% auto 23%
+      grid-template-rows: 100%
+      grid-template-areas: |
+        "sidebarsx main sidebardx"
+    badges: []
+    cards:
+#####################################################################################################################################################
+#                                                                                                                                                   #
+#                                                    COLONNA 1 (SIDEBAR SX)                                                                         #
+#                                                                                                                                                   #
+#####################################################################################################################################################
+
+      - type: custom:stack-in-card #Used to apply styling, as Card-Mod doesn't work on Vertical-Stack
+        layout:
+          grid-area: sidebarsx
+        card_mod:
+          style: |
+            ha-card {
+              height: 100%;
+              background-color: var(--background-sidebar-sx);
+              }  
+        cards:
+          - type: 'custom:layout-card' #Another Grid Layout to keep a bit of space from left
+            layout_type: grid
+            layout: 
+              grid-template-columns: 100%
+              grid-template-rows: 100%
+              grid-template-areas: |
+                "sidebar"
+            cards:
+              - type: vertical-stack
+                layout:
+                  grid-area: sidebar
+                cards:
+                  - type: custom:gap-card
+                    height: 150
+                    size: 40
+                  - type: markdown
+                    content: |
+                      # {{states('sensor.sidebar_date2')}}
+                      # {{states('sensor.time')}}
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 14px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.15em';
+                            text-align: center;
+                          }
+                  - type: entities
+                    entities:
+                      - type: divider
+                    card_mod:
+                    style: |
+                      ha-card {
+                        height: 100%;
+                        box-shadow: none !important;
+                          --ha-card-background: none !important;
+                        } 
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:home-roof' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 50px
+                        - height: 50px
+                        - margin-left: 10px
+                        - margin-top: 0px
+                        - border-radius: 30px
+                        - border-width: 1px
+                        - border-style: solid
+                        - border-color: var(--paper-item-icon-active-color)
+                        - box-shadow:  |
+                              [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                              ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--paper-item-icon-active-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-tabletui/home
+                      haptic: light
+
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:floor-plan' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 50px
+                        - height: 50px
+                        - margin-left: 10px
+                        - margin-top: 10px
+                        - border-radius: 30px
+                        - box-shadow: |
+                            [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                            : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                            ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-tabletui/rooms
+                      haptic: light
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:server' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 50px
+                        - height: 50px
+                        - margin-left: 10px
+                        - margin-top: 10px
+                        - border-radius: 30px
+                        - box-shadow: |
+                            [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                            : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                            ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-tabletui/system
+                      haptic: light
+                  - type: entities
+                    entities:
+                      - type: divider
+                    card_mod:
+                    style: |
+                      ha-card {
+                        height: 100%;
+                        box-shadow: none !important;
+                          --ha-card-background: none !important;
+                        } 
+
+#####################################################################################################################################################
+#                                                                                                                                                   #
+#                                                    COLONNA 2 (CENTRALE)                                                                           #
+#                                                                                                                                                   #
+#####################################################################################################################################################
+
+      - type: vertical-stack
+        layout:
+          grid-area: main
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: 'custom:layout-card'
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 40% 60%
+                  grid-template-rows: 
+                  grid-template-areas: |
+                    "wheater calendar"
+                    "climate camera"
+                    "power power"
+                cards:
+
+                        # - type:  custom:gap-card
+                        #   height: 20
+                        #   size: 40
+                        #   layout:
+                        #     grid-area: free
+                    
+                        - type: 'custom:simple-weather-card'
+                          layout:
+                            grid-area: wheater
+                          backdrop:
+                            fade: true
+                            day: '#45aaf2'
+                            night: '#a55eea'
+                          entity: weather.home # Use your Weather entity
+                          name: Ravenna
+                          primary_info:
+                            - precipitation
+                            - precipitation_probability
+                          secondary_info:
+                            - extrema    
+                          style: |
+                              ha-card {
+                                border-radius: 15px;
+                                height: 110px;
+                                }     
+                          tap_action: none                   
+                
+                        - type: 'custom:atomic-calendar-revive'
+                          layout:
+                            grid-area: calendar
+                          entities:
+                            - entity: calendar.casa # Use your Calendar entity
+                          maxDaysToShow: 7
+                          maxEventCount: 1
+                          showMonth: true
+                          showNoEventsForToday: false
+                          refreshInterval: 180
+                          style: |
+                              ha-card {
+                                border-radius: 15px;
+                                height: 110px;
+                                background-color: var(--background-sidebar-sx);
+                                }   
+                          tap_action: more-info
+                
+                        - type: vertical-stack
+                          layout:
+                            grid-area: climate
+                          cards:
+                            - type: markdown
+                              content: |
+                                # Clima
+                              style:
+                                .: |
+                                  ha-card {
+                                    --ha-card-background: none !important;
+                                    box-shadow: none !important;
+                                  }
+                                ha-markdown:
+                                  $: |
+                                    h1 {
+                                      font-size: 20px;
+                                      font-weight: bold;
+                                      font-family: Helvetica;
+                                      letter-spacing: '-0.01em';
+                                    }
+
+                            - type: horizontal-stack
+                              cards:
+                              # SALA
+                                - type: vertical-stack
+                                  cards:
+                                    - type: 'custom:flex-horseshoe-card'
+                                      card_mod:
+                                        style: |
+                                          ha-card {
+                                          background-color: var(--primary-background-color)
+                                          height: 118px;
+                                          width: 118px;  
+                                          border-radius: 30px;      
+                                          }   
+                                      entities:
+                                        - entity: climate.daikin_sala
+                                          attribute: current_temperature
+                                          decimals: 1
+                                          name: 'Sala'
+                                          unit: '°C'
+                                          tap_action:
+                                            action: call-service
+                                            service: browser_mod.popup
+                                            service_data: !include NdRUI_Tablet_Popup/clima.yaml
+                                              
+                                        - entity: climate.daikin_sala
+                                          attribute: temperature
+                                          decimals: 0
+                                          unit: '°C'
+                                      show:
+                                        horseshoe_style: 'lineargradient'
+                                      layout:
+                                        hlines:
+                                          # A horizontal line. Not connected to an entity
+                                          - id: 0
+                                            xpos: 50
+                                            ypos: 50
+                                            length: 50
+                                            styles:
+                                              - stroke: var(--primary-text-color);
+                                              - stroke-width: 5;
+                                              - stroke-linecap: round;
+                                              - opacity: 0.7;
+                                        states:
+                                          # States 0 refers to the first entity in the list, ie index 0
+                                          - id: 0
+                                            entity_index: 0
+                                            xpos: 50
+                                            ypos: 42
+                                            styles:
+                                              - font-size: 3em;
+                                          # States 1 refers to the second entity in the list, ie index 1
+                                          - id: 1
+                                            entity_index: 1
+                                            xpos: 40
+                                            ypos: 65
+                                            styles:
+                                              - text-anchor: start;
+                                              - font-size: 1.5em;
+                                        icons:
+                                          # Icons 0 refers to the second entity in the list, ie index 1
+                                          - id: 0
+                                            entity_index: 1
+                                            xpos: 37
+                                            ypos: 57
+                                            align: end
+                                            size: 1.3
+                                        names:
+                                          # Names 0 refers to the first entity in the list, ie index 0
+                                          - id: 0
+                                            entity_index: 0
+                                            xpos: 50
+                                            ypos: 85
+                                        
+                                      # Scale set to 10 to 30 degrees celcius
+                                      horseshoe_scale:
+                                        min: 10
+                                        max: 32
+                                      # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                                      # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                                      color_stops:
+                                        16: '#ffffff'
+                                        17: '#e6f9ff'
+                                        19: '#ccf2ff'
+                                        21: '#b3ecff'
+                                        22: '#99e6ff'
+                                        23: '#80dfff'
+                                        25: '#33ccff'
+                              # CAMERA
+                                - type: vertical-stack
+                                  cards:
+                                    - type: 'custom:flex-horseshoe-card'
+                                      card_mod:
+                                        style: |
+                                          ha-card {
+                                          background-color: var(--primary-background-color)
+                                          height: 118px;
+                                          width: 118px;  
+                                          border-radius: 30px;      
+                                          }   
+                                      entities:
+                                        - entity: climate.daikin_camera
+                                          attribute: current_temperature
+                                          decimals: 1
+                                          name: 'Camera'
+                                          unit: '°C'
+                                          tap_action:
+                                            action: call-service
+                                            service: browser_mod.popup
+                                            service_data: !include NdRUI_Tablet_Popup/clima.yaml   
+                                        - entity: climate.daikin_camera
+                                          attribute: temperature
+                                          decimals: 0
+                                          unit: '°C'
+                                          tap_action: none
+                                      show:
+                                        horseshoe_style: 'lineargradient'
+                                      layout:
+                                        hlines:
+                                          # A horizontal line. Not connected to an entity
+                                          - id: 0
+                                            xpos: 50
+                                            ypos: 50
+                                            length: 50
+                                            styles:
+                                              - stroke: var(--primary-text-color);
+                                              - stroke-width: 5;
+                                              - stroke-linecap: round;
+                                              - opacity: 0.7;
+                                        states:
+                                          # States 0 refers to the first entity in the list, ie index 0
+                                          - id: 0
+                                            entity_index: 0
+                                            xpos: 50
+                                            ypos: 42
+                                            styles:
+                                              - font-size: 3em;
+                                          # States 1 refers to the second entity in the list, ie index 1
+                                          - id: 1
+                                            entity_index: 1
+                                            xpos: 40
+                                            ypos: 65
+                                            styles:
+                                              - text-anchor: start;
+                                              - font-size: 1.5em;
+                                        icons:
+                                          # Icons 0 refers to the second entity in the list, ie index 1
+                                          - id: 0
+                                            entity_index: 1
+                                            xpos: 37
+                                            ypos: 57
+                                            align: end
+                                            size: 1.3
+                                        names:
+                                          # Names 0 refers to the first entity in the list, ie index 0
+                                          - id: 0
+                                            entity_index: 0
+                                            xpos: 50
+                                            ypos: 85
+                                        
+                                      # Scale set to 10 to 30 degrees celcius
+                                      horseshoe_scale:
+                                        min: 10
+                                        max: 32
+                                      # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                                      # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                                      color_stops:
+                                        16: '#ffffff'
+                                        17: '#e6f9ff'
+                                        19: '#ccf2ff'
+                                        21: '#b3ecff'
+                                        22: '#99e6ff'
+                                        23: '#80dfff'
+                                        25: '#33ccff'
+
+                            - type: horizontal-stack
+                              cards:
+                              # STUDIO
+                                - type: vertical-stack
+                                  cards:
+                                    - type: 'custom:flex-horseshoe-card'
+                                      card_mod:
+                                        style: |
+                                          ha-card {
+                                          background-color: var(--primary-background-color)
+                                          height: 118px;
+                                          width: 118px;  
+                                          border-radius: 30px;      
+                                          }   
+                                      entities:
+                                        - entity: climate.daikin_studio
+                                          attribute: current_temperature
+                                          decimals: 1
+                                          name: 'Studio'
+                                          unit: '°C'
+                                          tap_action:
+                                            action: call-service
+                                            service: browser_mod.popup
+                                            service_data: !include NdRUI_Tablet_Popup/clima.yaml
+                                        - entity: climate.daikin_studio
+                                          attribute: temperature
+                                          decimals: 0
+                                          unit: '°C'
+                                      show:
+                                        horseshoe_style: 'lineargradient'
+                                      layout:
+                                        hlines:
+                                          # A horizontal line. Not connected to an entity
+                                          - id: 0
+                                            xpos: 50
+                                            ypos: 50
+                                            length: 50
+                                            styles:
+                                              - stroke: var(--primary-text-color);
+                                              - stroke-width: 5;
+                                              - stroke-linecap: round;
+                                              - opacity: 0.7;
+                                        states:
+                                          # States 0 refers to the first entity in the list, ie index 0
+                                          - id: 0
+                                            entity_index: 0
+                                            xpos: 50
+                                            ypos: 42
+                                            styles:
+                                              - font-size: 3em;
+                                          # States 1 refers to the second entity in the list, ie index 1
+                                          - id: 1
+                                            entity_index: 1
+                                            xpos: 40
+                                            ypos: 65
+                                            styles:
+                                              - text-anchor: start;
+                                              - font-size: 1.5em;
+                                        icons:
+                                          # Icons 0 refers to the second entity in the list, ie index 1
+                                          - id: 0
+                                            entity_index: 1
+                                            xpos: 37
+                                            ypos: 57
+                                            align: end
+                                            size: 1.3
+                                        names:
+                                          # Names 0 refers to the first entity in the list, ie index 0
+                                          - id: 0
+                                            entity_index: 0
+                                            xpos: 50
+                                            ypos: 85
+                                        
+                                      # Scale set to 10 to 30 degrees celcius
+                                      horseshoe_scale:
+                                        min: 10
+                                        max: 32
+                                      # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                                      # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                                      color_stops:
+                                        16: '#ffffff'
+                                        17: '#e6f9ff'
+                                        19: '#ccf2ff'
+                                        21: '#b3ecff'
+                                        22: '#99e6ff'
+                                        23: '#80dfff'
+                                        25: '#33ccff'
+                              # FUORI
+                                - type: vertical-stack
+                                  cards:
+                                    - type: 'custom:flex-horseshoe-card'
+                                      card_mod:
+                                        style: |
+                                          ha-card {
+                                          background-color: var(--primary-background-color)
+                                          height: 118px;
+                                          width: 118px;  
+                                          border-radius: 30px;      
+                                          }   
+                                      entities:
+                                        - entity: weather.home
+                                          attribute: temperature
+                                          decimals: 1
+                                          name: 'Fuori'
+                                          unit: '°C'
+                                        - entity: weather.home
+                                          attribute: humidity
+                                          decimals: 0
+                                          unit: '%'
+                                      show:
+                                        horseshoe_style: 'lineargradient'
+                                      layout:
+                                        hlines:
+                                          # A horizontal line. Not connected to an entity
+                                          - id: 0
+                                            xpos: 50
+                                            ypos: 50
+                                            length: 50
+                                            styles:
+                                              - stroke: var(--primary-text-color);
+                                              - stroke-width: 5;
+                                              - stroke-linecap: round;
+                                              - opacity: 0.7;
+                                        states:
+                                          # States 0 refers to the first entity in the list, ie index 0
+                                          - id: 0
+                                            entity_index: 0
+                                            xpos: 50
+                                            ypos: 42
+                                            styles:
+                                              - font-size: 3em;
+                                          # States 1 refers to the second entity in the list, ie index 1
+                                          - id: 1
+                                            entity_index: 1
+                                            xpos: 40
+                                            ypos: 65
+                                            styles:
+                                              - text-anchor: start;
+                                              - font-size: 1.5em;
+                                        icons:
+                                          # Icons 0 refers to the second entity in the list, ie index 1
+                                          - id: 0
+                                            entity_index: 1
+                                            xpos: 37
+                                            ypos: 57
+                                            align: end
+                                            size: 1.3
+                                        names:
+                                          # Names 0 refers to the first entity in the list, ie index 0
+                                          - id: 0
+                                            entity_index: 0
+                                            xpos: 50
+                                            ypos: 85
+                                        
+                                      # Scale set to 10 to 30 degrees celcius
+                                      horseshoe_scale:
+                                        min: -10
+                                        max: 35
+                                      # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                                      # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                                      color_stops:
+                                        16: '#ffffff'
+                                        17: '#e6f9ff'
+                                        19: '#ccf2ff'
+                                        21: '#b3ecff'
+                                        22: '#99e6ff'
+                                        23: '#80dfff'
+                                        25: '#33ccff'                       
+
+                            
+                        - type: vertical-stack
+                          layout:
+                              grid-area: camera 
+                          cards:
+                            - type: markdown
+                              content: |
+                                # Telecamere
+                              style:
+                                .: |
+                                  ha-card {
+                                    --ha-card-background: none !important;
+                                    box-shadow: none !important;
+                                  }
+                                ha-markdown:
+                                  $: |
+                                    h1 {
+                                      font-size: 20px;
+                                      font-weight: bold;
+                                      font-family: Helvetica;
+                                      letter-spacing: '-0.01em';
+                                    }
+                            
+                            - type: vertical-stack
+                              cards:
+
+                                - type: horizontal-stack
+                                  cards:
+                                    - type: picture-entity
+                                      name: Ingresso
+                                      entity: binary_sensor.movimento_ingresso
+                                      camera_image: camera.yi_camera_ingresso_pic 
+                                      state_filter:
+                                        "on": brightness(100%) 
+                                        "off": brightness(100%)   
+                                      tap_action:
+                                        action: call-service
+                                        service: browser_mod.popup
+                                        service_data: !include NdRUI_Tablet_Popup/camera.yaml
+                                    - type: picture-entity
+                                      name: Scale
+                                      entity: binary_sensor.movimento_scale
+                                      camera_image: camera.yi_camera_scale_pic  
+                                      state_filter:
+                                        "on": brightness(100%) 
+                                        "off": brightness(100%) 
+                                      tap_action:
+                                        action: call-service
+                                        service: browser_mod.popup
+                                        service_data: !include NdRUI_Tablet_Popup/camera.yaml
+
+                                - type: horizontal-stack
+                                  cards:
+                                    - type: picture-entity
+                                      name: Sala
+                                      entity: binary_sensor.movimento_sala
+                                      camera_image: camera.yi_camera_sala_pic  
+                                      state_filter:
+                                        "on": brightness(100%) 
+                                        "off": brightness(100%)  
+                                      tap_action:
+                                        action: call-service
+                                        service: browser_mod.popup
+                                        service_data: !include NdRUI_Tablet_Popup/camera.yaml
+                                    - type: picture-entity
+                                      name: Camera
+                                      entity: binary_sensor.movimento_camera
+                                      camera_image: camera.yi_camera_camera_pic
+                                      state_filter:
+                                        "on": brightness(100%) 
+                                        "off": brightness(100%) 
+                                      tap_action:
+                                        action: call-service
+                                        service: browser_mod.popup
+                                        service_data: !include NdRUI_Tablet_Popup/camera.yaml
+
+                        - type: vertical-stack
+                          layout:
+                            grid-area: power
+                          cards:
+                            - type:  custom:gap-card
+                              height: 20
+                              size: 40
+                            - type: custom:mini-graph-card
+                              layout:
+                                  grid-area: power
+                              card_mod:
+                                  style: |
+                                    ha-card {
+                                      border-radius: 15px;
+                                      height: 260px;
+                                      box-shadow: none !important;
+                                      background-color: var(--primary-background-color)
+                                      } 
+                              entities:
+                                - entity: sensor.assorbimento_totale
+                              name: Assorbimento
+                              align_state: center
+                              align_header: center
+                              points_per_hour: 30
+                              line_width: 1
+                              font_size: 90
+                              show:
+                                icon: false
+                                name: true
+                                state: true
+                                points: false
+                              tap_action:
+                                action: call-service
+                                service: browser_mod.popup
+                                service_data: !include NdRUI_Tablet_Popup/assorbimento_totale.yaml
+
+
+
+#####################################################################################################################################################
+#                                                                                                                                                   #
+#                                                    COLONNA 3 (SIDEBAR DX)                                                                         #
+#                                                                                                                                                   #
+#####################################################################################################################################################
+
+      - type: custom:stack-in-card #We need the Stack-in-Card only for the colo background (for some reason it doesn't work on layout-card-gridder)
+        layout:
+          grid-area: sidebardx
+        card_mod:
+          style: |
+            ha-card {
+              height: 100%;
+              background-color: var(--background-sidebar-sx);
+              } 
+        cards: 
+          - type: 'custom:layout-card'
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 5% 95%
+              grid-template-rows: 65% 35%
+              grid-template-areas: |
+                "free1 sidebar"
+                "graph graph"
+            cards:
+
+              - type: vertical-stack
+                layout:
+                  grid-area: sidebar
+                cards:
+                    
+                  - type:  custom:gap-card
+                    height: 20
+                    size: 10
+                  - type: horizontal-stack
+                    cards:
+                      - type: picture-entity
+                        show_name: false
+                        show_state: false
+                        action: none
+                        entity: person.andrea
+                        state_image:
+                          home: /local/propic/andre.jpg
+                          not_home: /local/propic/andregr.jpg
+                          Lavoro Andre: /local/propic/andregr.jpg
+                          Casa Pinto: /local/propic/andregr.jpg
+                        card_mod:
+                          style: |
+                            ha-card {
+                              height: 80px;
+                              width: 80px;
+                              
+                              background-color: var(--background-sidebar-sx);
+                              border-radius: 30px;
+                              } 
+                        tap_action: none
+                      - type: picture-entity
+                        show_name: false
+                        show_state: false
+                        action: none
+                        entity: person.mary
+                        state_image:
+                          home: /local/propic/mary.jpg
+                          not_home: /local/propic/marygr.jpg
+                          Lavoro Mary: /local/propic/marygr.jpg
+                          Casa Pinto: /local/propic/marygr.jpg
+                        card_mod:
+                          style: |
+                            ha-card {
+                              height: 80px;
+                              width: 80px;
+                              background-color: var(--background-sidebar-sx);
+                              border-radius: 30px;
+                              } 
+                        tap_action: none
+                  - type:  custom:gap-card
+                    height: 20
+                    size: 10
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card' 
+                        entity: input_select.cancello_button_card # Change this to the entity you want to control
+                        icon: 'mdi:gate'
+                        name: Cancello
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 5px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'cancello_on'
+                          icon: 'mdi:gate-open'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: call-service
+                          service: switch.toggle
+                          service_data: 
+                            entity_id: switch.cancello
+                          haptic: light
+
+                      - type: markdown
+                        content: |
+                          # Cancello
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 5px;
+                              margin-bottom: 1px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }                           
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card' 
+                        entity: input_select.sera_button_card # Change this to the entity you want to control
+                        icon: 'mdi:weather-night'
+                        name: Sera
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'sera_on'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: call-service
+                          service: script.turn_on
+                          service_data: 
+                            entity_id: script.casa_spegnimento_sera
+                          haptic: light
+
+                      - type: markdown
+                        content: |
+                          # Sera
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 1px;
+                              margin-bottom: 1px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }  
+
+                  - type: horizontal-stack
+                    cards:  
+                      - type: 'custom:button-card' 
+                        entity: sensor.raccolta_differenziata # Change this to the entity you want to control
+                        icon: 'mdi:trash-can-outline'
+                        name: Raccolta Differenziata
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                        - value: 'Organico'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        - value: 'Indifferenziata'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        tap_action: none
+
+                      - type: markdown
+                        content: |
+                          # {{ states('sensor.raccolta_differenziata') }}
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 1px;
+                              margin-bottom: 1px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }   
+
+                  - type:  custom:gap-card
+                    height: 20
+                    size: 10
+
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card' 
+                        entity: sensor.scurone_sala # Change this to the entity you want to control
+                        name: Sala
+                        show_icon: true
+                        show_name: true # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 70px
+                            - height: 70px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'Aperto'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: '#ff9933'
+                        tap_action: none            
+                      - type: 'custom:button-card' 
+                        entity: sensor.lucernaio_studio # Change this to the entity you want to control
+                        name: Studio
+                        show_icon: true
+                        show_name: true # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 70px
+                            - height: 70px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'Aperto'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: '#ff9933'
+                        tap_action: none 
+
+                  - type:  custom:gap-card
+                    height: 40
+                    size: 10
+
+              - type: 'custom:mini-graph-card'
+                layout:
+                  grid-area: graph
+                entities:
+                  - entity: sensor.openweathermap_humidity
+                    name: Umidità
+                unit: '%'
+                tap_action: none
+                points_per_hour: 1
+                show:
+                  icon: false
+                  extrema: true
+                line_width: 2
+                height: 130
+                align_state: center
+                align_header: center
+                color_thresholds_transition: hard
+                color_thresholds:
+                  - value: 30
+                    color: '#ccf2ff'
+                  - value: 50
+                    color: '#80dfff'
+                  - value: 70
+                    color: '#33ccff'
+                  - value: 90
+                    color: '#00ace6'
+                  - value: 100
+                    color: '#0099ff'   
+                card_mod:
+                  style: |
+                    ha-card {
+                      height: 247px;
+                      background-color: var(--background-sidebar-sx);
+                      border-radius: 30px;
+                      box-shadow: none !important;
+                      }    
+
+                      
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+                               ######################################################################
+                               ##                                                                  ##
+                               ##                            ROOM VIEW                             ##
+                               ##                                                                  ##
+                               ######################################################################
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+  - title: Rooms
+    path: rooms
+    icon: 'mdi:floor-plan'
+    panel: false
+    type: custom:grid-layout
+    layout:
+      grid-template-columns: 7% auto 23%
+      grid-template-rows: 100%
+      grid-template-areas: |
+        "sidebarsx main sidebardx"
+    badges: []
+    cards:
+
+#####################################################################################################################################################
+#                                                                                                                                                   #
+#                                                    COLONNA 1 (SIDEBAR SX)                                                                         #
+#                                                                                                                                                   #
+#####################################################################################################################################################
+
+      - type: custom:stack-in-card
+        layout:
+          grid-area: sidebarsx
+        card_mod:
+          style: |
+            ha-card {
+              height: 100%;
+              background-color: var(--background-sidebar-sx);
+              }  
+        cards:
+          - type: 'custom:layout-card' #Another Grid Layout to keep a bit of space from left
+            layout_type: grid
+            layout: 
+              grid-template-columns: 100%
+              grid-template-rows: 100%
+              grid-template-areas: |
+                "sidebar"
+            cards:
+              - type: vertical-stack
+                layout:
+                  grid-area: sidebar
+                cards:
+                  - type: custom:gap-card
+                    height: 150
+                    size: 40
+                  - type: markdown
+                    content: |
+                      # {{states('sensor.sidebar_date2')}}
+                      # {{states('sensor.time')}}
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 15px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.09em';
+                            text-align: center;
+                          }
+                  - type: entities
+                    entities:
+                      - type: divider
+                    card_mod:
+                    style: |
+                      ha-card {
+                        height: 100%;
+                        box-shadow: none !important;
+                          --ha-card-background: none !important;
+                        } 
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:home-roof' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 50px
+                        - height: 50px
+                        - margin-left: 10px
+                        - margin-top: 0px
+                        - border-radius: 30px
+                        - box-shadow: |
+                              [[[ return states['sun.sun'].state == 'below_horizon'
+                              ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                              : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                              ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-tabletui/home
+                      haptic: light
+
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:floor-plan' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 50px
+                        - height: 50px
+                        - margin-left: 10px
+                        - margin-top: 10px
+                        - border-radius: 30px
+                        - border-width: 1px
+                        - border-style: solid
+                        - border-color: var(--paper-item-icon-active-color)
+                        - box-shadow: |
+                              [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                              ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--paper-item-icon-active-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-tabletui/rooms
+                      haptic: light
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:server' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 50px
+                        - height: 50px
+                        - margin-left: 10px
+                        - margin-top: 10px
+                        - border-radius: 30px
+                        - box-shadow: |
+                            [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                            : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                            ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-tabletui/system
+                      haptic: light
+                  - type: entities
+                    entities:
+                      - type: divider
+                    card_mod:
+                    style: |
+                      ha-card {
+                        height: 100%;
+                        box-shadow: none !important;
+                          --ha-card-background: none !important;
+                        } 
+
+#####################################################################################################################################################
+#                                                                                                                                                   #
+#                                                    COLONNA 2 (CENTRALE)                                                                           #
+#                                                                                                                                                   #
+#####################################################################################################################################################
+
+      - type: vertical-stack
+        layout:
+          grid-area: main
+        cards:
+          - type:  custom:gap-card
+            height: 150
+            size: 40
+          - type: 'custom:config-template-card'    
+            entities:
+              - light.faretti
+              - light.led_cucina
+              - light.led_scale
+              - light.luce1
+              - light.luce2
+              - light.luce_bagno
+              - light.luce_camera
+              - light.luce_giardino
+              - light.luce_studio
+            card_mod:
+              style: |
+                ha-card {
+                  box-shadow: none !important;
+                  }    
+
+            card:
+              ###################   Picture Elements Card    #####################
+              type: picture-elements       
+              image: /local/ui_tablet/floorplan/casa-notte.png
+              style: |
+                ha-card:first-child {
+                  background: var(--primary-background-color)
+                  box-shadow: none !important; 
+                  }
+                
+              elements:
+
+                  #########################    DAY BASE FLOORPLAN OVERLAY    #########################
+
+                - action: none
+                  entity: sun.sun
+                  hold_action:
+                    action: none
+                  state_image:
+                    above_horizon: /local/ui_tablet/floorplan/casa-giorno.png
+                    below_horizon: /local/transparent.png
+                  style:
+                    height: 100%
+                    left: 50%
+                    mix-blend-mode: lighten
+                    opacity: '${ states[''sensor.sunlight_opacity''].state }'
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image
+
+                  #########################    WEATHER ANIMATIONS    #########################
+                  
+                - action: none
+                  entity: weather.home
+                  hold_action:
+                    action: none
+                  image: /local/ui_tablet/floorplan/weather/rainstorm.gif
+                  state_filter:
+                    'pouring': opacity(100%)
+                  style:
+                    left: 60%
+                    mix-blend-mode: color-dodge
+                    top: 50%
+                    width: 110%
+                    opacity: 0
+                  tap_action:
+                    action: none
+                  type: image     
+          
+                #########################    Inside overlays for weather    #########################
+
+
+                - action: none
+                  hold_action:
+                    action: none
+                  image: /local/ui_tablet/floorplan/interno-notte.png
+                  style:
+                    height: 100%
+                    left: 50%
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image 
+                  
+                - action: none
+                  entity: sun.sun
+                  hold_action:
+                    action: none
+                  state_image:
+                    above_horizon: /local/ui_tablet/floorplan/interno-giorno.png
+                    below_horizon: /local/transparent.png
+                  style:
+                    height: 100%
+                    left: 50%
+                    mix-blend-mode: lighten
+                    opacity: '${ states[''sensor.sunlight_opacity''].state }'
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image       
+
+                  #########################    INDIVIDUAL LIGHTS - BLENDED IMAGE OVERLAYS    #########################
+
+                  ####################################################
+                  #                                                  #
+                  #                 SALA + CUCINA                    #
+                  #                                                  #
+                  ####################################################
+
+                  
+                - action: none
+                  entity: light.faretti
+                  hold_action:
+                    action: none
+                  image: /local/ui_tablet/floorplan/sala-faretti.png
+                  style:
+                    filter: >-
+                      ${ "hue-rotate(" + (states['light.faretti'].attributes.hs_color
+                      ? states['light.faretti'].attributes.hs_color[0] : 0) + "deg)"}
+                    left: 50%
+                    mix-blend-mode: lighten
+                    opacity: "${states['light.faretti'].state === 'on' ? (states['light.faretti'].attributes.brightness / 255) : '0'}"
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image
+
+                - action: none
+                  entity: light.led_cucina
+                  hold_action:
+                    action: none
+                  image: /local/ui_tablet/floorplan/sala_led-cucina.png
+                  style:
+                    filter: >-
+                      ${ "hue-rotate(" + (states['light.led_cucina'].attributes.hs_color
+                      ? states['light.led_cucina'].attributes.hs_color[0] : 0) + "deg)"}
+                    left: 50%
+                    mix-blend-mode: lighten
+                    opacity: "${states['light.led_cucina'].state === 'on' ? (states['light.led_cucina'].attributes.brightness / 255) : '0'}"
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image
+
+                - action: none
+                  entity: light.led_scale
+                  hold_action:
+                    action: none
+                  image: /local/ui_tablet/floorplan/sala_led-scale.png
+                  style:
+                    filter: >-
+                      ${ "hue-rotate(" + (states['light.led_scale'].attributes.hs_color
+                      ? states['light.led_scale'].attributes.hs_color[0] : 0) + "deg)"}
+                    left: 50%
+                    mix-blend-mode: lighten
+                    opacity: "${states['light.led_scale'].state === 'on' ? (states['light.led_scale'].attributes.brightness / 255) : '0'}"
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image
+
+                - action: none
+                  entity: light.luce1
+                  hold_action:
+                    action: none
+                  image: /local/ui_tablet/floorplan/sala_luce1.png
+                  style:
+                    filter: >-
+                      ${ "hue-rotate(" + (states['light.luce1'].attributes.hs_color
+                      ? states['light.luce1'].attributes.hs_color[0] : 0) + "deg)"}
+                    left: 50%
+                    mix-blend-mode: lighten
+                    opacity: "${states['light.luce1'].state === 'on' ? (states['light.luce1'].attributes.brightness / 255) : '0'}"
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image
+
+                - action: none
+                  entity: light.luce1
+                  hold_action:
+                    action: none
+                  image: /local/ui_tablet/floorplan/sala_luce2.png
+                  style:
+                    filter: >-
+                      ${ "hue-rotate(" + (states['light.luce2'].attributes.hs_color
+                      ? states['light.luce2'].attributes.hs_color[0] : 0) + "deg)"}
+                    left: 50%
+                    mix-blend-mode: lighten
+                    opacity: "${states['light.luce2'].state === 'on' ? (states['light.luce2'].attributes.brightness / 255) : '0'}"
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image
+
+                  ####################################################
+                  #                                                  #
+                  #                      BAGNO                       #
+                  #                                                  #
+                  ####################################################
+
+                - action: none
+                  entity: light.luce_bagno
+                  hold_action:
+                    action: none
+                  image: /local/ui_tablet/floorplan/bagno.png
+                  style:
+                    filter: >-
+                      ${ "hue-rotate(" + (states['light.luce_bagno'].attributes.hs_color
+                      ? states['light.luce_bagno'].attributes.hs_color[0] : 0) + "deg)"}
+                    left: 50%
+                    mix-blend-mode: lighten
+                    opacity: "${states['light.luce_bagno'].state === 'on' ? (states['light.luce_bagno'].attributes.brightness / 255) : '0'}"
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image
+
+                  ####################################################
+                  #                                                  #
+                  #                     CAMERA                       #
+                  #                                                  #
+                  ####################################################
+
+                - action: none
+                  entity: light.luce_camera
+                  hold_action:
+                    action: none
+                  image: /local/ui_tablet/floorplan/camera.png
+                  style:
+                    filter: >-
+                      ${ "hue-rotate(" + (states['light.luce_camera'].attributes.hs_color
+                      ? states['light.luce_camera'].attributes.hs_color[0] : 0) + "deg)"}
+                    left: 50%
+                    mix-blend-mode: lighten
+                    opacity: "${states['light.luce_camera'].state === 'on' ? (states['light.luce_camera'].attributes.brightness / 255) : '0'}"
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image
+              
+                  ####################################################
+                  #                                                  #
+                  #                     BALCONE                      #
+                  #                                                  #
+                  ####################################################
+
+                - action: none
+                  entity: light.luce_giardino
+                  hold_action:
+                    action: none
+                  image: /local/ui_tablet/floorplan/balcone.png
+                  style:
+                    filter: >-
+                      ${ "hue-rotate(" + (states['light.luce_giardino'].attributes.hs_color
+                      ? states['light.luce_giardino'].attributes.hs_color[0] : 0) + "deg)"}
+                    left: 50%
+                    mix-blend-mode: lighten
+                    opacity: "${states['light.luce_giardino'].state === 'on' ? (states['light.luce_giardino'].attributes.brightness / 255) : '0'}"
+                    top: 50%
+                    width: 100%
+                  tap_action:
+                    action: none
+                  type: image
+          
+                  #########################    INDIVIDUAL LIGHT ICONS    #########################
+                  
+                  #  These are the white state icons that appear over the floorplan.
+                  #  They are the same as above, but instead of "areas" to control a group, they only 
+                  #. control individual lights
+                  #
+                  #  browser_mod.popup is used for a tap and hold for a custom popup card, custom styling 
+                  #  of the icon to make it appear white, etc.
+
+                  ####################################################
+                  #                                                  #
+                  #                 SALA + CUCINA                    #
+                  #                                                  #
+                  ####################################################             
+                  
+                - entity: light.faretti
+                  icon: 'mdi:string-lights'
+                  style:
+                    '--iron-icon-height': 1.2vw
+                    '--iron-icon-width': 1.2vw
+                    '--paper-item-icon-active-color': '#ffff66'
+                    '--paper-item-icon-color': darkgrey
+                    align-items: center
+                    background-color: '#FFFFFF'
+                    border-radius: 100%
+                    box-shadow: '0px 0px 28px 0px rgba(0,0,0,0.39)'
+                    display: flex
+                    justify-content: center
+                    left: 40%
+                    margin-left: '-1.5vw'
+                    margin-top: '-1.5vw'
+                    top: 80%
+                    transform: scale(1.2)
+                    width: 2.5vw
+                    height: 2.5vw
+                  tap_action:
+                    action: toggle
+                  type: state-icon
+                
+                - entity: light.led_cucina
+                  icon: 'mdi:led-strip-variant'
+                  style:
+                    '--iron-icon-height': 1.2vw
+                    '--iron-icon-width': 1.2vw
+                    '--paper-item-icon-active-color': '#ffff66'
+                    '--paper-item-icon-color': darkgrey
+                    align-items: center
+                    background-color: '#FFFFFF'
+                    border-radius: 100%
+                    box-shadow: '0px 0px 28px 0px rgba(0,0,0,0.39)'
+                    display: flex
+                    justify-content: center
+                    left: 50%
+                    margin-left: '-1.5vw'
+                    margin-top: '-1.5vw'
+                    top: 85%
+                    transform: scale(1.2)
+                    width: 2.5vw
+                    height: 2.5vw
+                  tap_action:
+                    action: toggle
+                  hold_action:
+                    action: call-service
+                    service: browser_mod.popup
+                    service_data: !include NdRUI_Tablet_Popup/led_cucina.yaml
+                  type: state-icon
+                
+                - entity: light.led_scale
+                  icon: 'mdi:led-strip-variant'
+                  style:
+                    '--iron-icon-height': 1.2vw
+                    '--iron-icon-width': 1.2vw
+                    '--paper-item-icon-active-color': '#ffff66'
+                    '--paper-item-icon-color': darkgrey
+                    align-items: center
+                    background-color: '#FFFFFF'
+                    border-radius: 100%
+                    box-shadow: '0px 0px 28px 0px rgba(0,0,0,0.39)'
+                    display: flex
+                    justify-content: center
+                    left: 48%
+                    margin-left: '-1.5vw'
+                    margin-top: '-1.5vw'
+                    top: 42%
+                    transform: scale(1.2)
+                    width: 2.5vw
+                    height: 2.5vw
+                  tap_action:
+                    action: toggle
+                  type: state-icon
+
+                - entity: light.luce1
+                  icon: 'mdi:ceiling-light'
+                  style:
+                    '--iron-icon-height': 1.2vw
+                    '--iron-icon-width': 1.2vw
+                    '--paper-item-icon-active-color': '#ffff66'
+                    '--paper-item-icon-color': darkgrey
+                    align-items: center
+                    background-color: '#FFFFFF'
+                    border-radius: 100%
+                    box-shadow: '0px 0px 28px 0px rgba(0,0,0,0.39)'
+                    display: flex
+                    justify-content: center
+                    left: 35%
+                    margin-left: '-1.5vw'
+                    margin-top: '-1.5vw'
+                    top: 42%
+                    transform: scale(1.2)
+                    width: 2.5vw
+                    height: 2.5vw
+                  tap_action:
+                    action: toggle
+                  type: state-icon
+
+                - entity: light.luce2
+                  icon: 'mdi:ceiling-light'
+                  style:
+                    '--iron-icon-height': 1.2vw
+                    '--iron-icon-width': 1.2vw
+                    '--paper-item-icon-active-color': '#ffff66'
+                    '--paper-item-icon-color': darkgrey
+                    align-items: center
+                    background-color: '#FFFFFF'
+                    border-radius: 100%
+                    box-shadow: '0px 0px 28px 0px rgba(0,0,0,0.39)'
+                    display: flex
+                    justify-content: center
+                    left: 35%
+                    margin-left: '-1.5vw'
+                    margin-top: '-1.5vw'
+                    top: 63%
+                    transform: scale(1.2)
+                    width: 2.5vw
+                    height: 2.5vw
+                  tap_action:
+                    action: toggle
+                  type: state-icon
+
+                  ####################################################
+                  #                                                  #
+                  #                      BAGNO                       #
+                  #                                                  #
+                  ####################################################
+                  
+                - entity: light.luce_bagno
+                  icon: 'mdi:ceiling-light'
+                  style:
+                    '--iron-icon-height': 1.2vw
+                    '--iron-icon-width': 1.2vw
+                    '--paper-item-icon-active-color': '#ffff66'
+                    '--paper-item-icon-color': darkgrey
+                    align-items: center
+                    background-color: '#FFFFFF'
+                    border-radius: 100%
+                    box-shadow: '0px 0px 28px 0px rgba(0,0,0,0.39)'
+                    display: flex
+                    justify-content: center
+                    left: 59%
+                    margin-left: '-1.5vw'
+                    margin-top: '-1.5vw'
+                    top: 40%
+                    transform: scale(1.2)
+                    width: 2.5vw
+                    height: 2.5vw
+                  tap_action:
+                    action: toggle
+                  type: state-icon
+
+                  ####################################################
+                  #                                                  #
+                  #                     CAMERA                       #
+                  #                                                  #
+                  ####################################################
+
+                - entity: light.luce_camera
+                  icon: 'mdi:string-lights'
+                  style:
+                    '--iron-icon-height': 1.2vw
+                    '--iron-icon-width': 1.2vw
+                    '--paper-item-icon-active-color': '#ffff66'
+                    '--paper-item-icon-color': darkgrey
+                    align-items: center
+                    background-color: '#FFFFFF'
+                    border-radius: 100%
+                    box-shadow: '0px 0px 28px 0px rgba(0,0,0,0.39)'
+                    display: flex
+                    justify-content: center
+                    left: 82%
+                    margin-left: '-1.5vw'
+                    margin-top: '-1.5vw'
+                    top: 40%
+                    transform: scale(1.2)
+                    width: 2.5vw
+                    height: 2.5vw
+                  tap_action:
+                    action: toggle
+                  type: state-icon
+
+                  ####################################################
+                  #                                                  #
+                  #                     BALCONE                      #
+                  #                                                  #
+                  ####################################################
+
+                - entity: light.luce_giardino
+                  icon: 'mdi:coach-lamp'
+                  style:
+                    '--iron-icon-height': 1.2vw
+                    '--iron-icon-width': 1.2vw
+                    '--paper-item-icon-active-color': '#ffff66'
+                    '--paper-item-icon-color': darkgrey
+                    align-items: center
+                    background-color: '#FFFFFF'
+                    border-radius: 100%
+                    box-shadow: '0px 0px 28px 0px rgba(0,0,0,0.39)'
+                    display: flex
+                    justify-content: center
+                    left: 20%
+                    margin-left: '-1.5vw'
+                    margin-top: '-1.5vw'
+                    top: 13%
+                    transform: scale(1.2)
+                    width: 2.5vw
+                    height: 2.5vw
+                  tap_action:
+                    action: toggle
+                  type: state-icon                                      
+ 
+
+#####################################################################################################################################################
+#                                                                                                                                                   #
+#                                                    COLONNA 3 (SIDEBAR DX)                                                                         #
+#                                                                                                                                                   #
+#####################################################################################################################################################
+
+      - type: custom:stack-in-card #We need the Stack-in-Card only for the colo background (for some reason it doesn't work on layout-card-gridder)
+        layout:
+          grid-area: sidebardx
+        card_mod:
+          style: |
+            ha-card {
+              height: 100%;
+              background-color: var(--background-sidebar-sx);
+              } 
+        cards: 
+          - type: 'custom:layout-card'
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 5% 95%
+              grid-template-rows: 65% 35%
+              grid-template-areas: |
+                "free1 sidebar"
+                "graph graph"
+            cards:
+
+              - type: vertical-stack
+                layout:
+                  grid-area: sidebar
+                cards:
+                    
+                  - type:  custom:gap-card
+                    height: 20
+                    size: 10
+                  - type: horizontal-stack
+                    cards:
+                      - type: picture-entity
+                        show_name: false
+                        show_state: false
+                        action: none
+                        entity: person.andrea
+                        state_image:
+                          home: /local/propic/andre.jpg
+                          not_home: /local/propic/andregr.jpg
+                          Lavoro Andre: /local/propic/andregr.jpg
+                          Casa Pinto: /local/propic/andregr.jpg
+                        card_mod:
+                          style: |
+                            ha-card {
+                              height: 80px;
+                              width: 80px;
+                              
+                              background-color: var(--background-sidebar-sx);
+                              border-radius: 30px;
+                              } 
+                        tap_action: none
+                      - type: picture-entity
+                        show_name: false
+                        show_state: false
+                        action: none
+                        entity: person.mary
+                        state_image:
+                          home: /local/propic/mary.jpg
+                          not_home: /local/propic/marygr.jpg
+                          Lavoro Mary: /local/propic/marygr.jpg
+                          Casa Pinto: /local/propic/marygr.jpg
+                        card_mod:
+                          style: |
+                            ha-card {
+                              height: 80px;
+                              width: 80px;
+                              background-color: var(--background-sidebar-sx);
+                              border-radius: 30px;
+                              } 
+                        tap_action: none
+                  - type:  custom:gap-card
+                    height: 20
+                    size: 10
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card' 
+                        entity: input_select.cancello_button_card # Change this to the entity you want to control
+                        icon: 'mdi:gate'
+                        name: Cancello
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 5px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'cancello_on'
+                          icon: 'mdi:gate-open'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: call-service
+                          service: switch.toggle
+                          service_data: 
+                            entity_id: switch.cancello
+                          haptic: light
+
+                      - type: markdown
+                        content: |
+                          # Cancello
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 5px;
+                              margin-bottom: 1px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }                           
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card' 
+                        entity: input_select.sera_button_card # Change this to the entity you want to control
+                        icon: 'mdi:weather-night'
+                        name: Sera
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'sera_on'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: call-service
+                          service: script.turn_on
+                          service_data: 
+                            entity_id: script.casa_spegnimento_sera
+                          haptic: light
+
+                      - type: markdown
+                        content: |
+                          # Sera
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 1px;
+                              margin-bottom: 1px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }  
+
+                  - type: horizontal-stack
+                    cards:  
+                      - type: 'custom:button-card' 
+                        entity: sensor.raccolta_differenziata # Change this to the entity you want to control
+                        icon: 'mdi:trash-can-outline'
+                        name: Raccolta Differenziata
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                        - value: 'Organico'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        - value: 'Indifferenziata'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        tap_action: none
+
+                      - type: markdown
+                        content: |
+                          # {{ states('sensor.raccolta_differenziata') }}
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 1px;
+                              margin-bottom: 1px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }   
+
+                  - type:  custom:gap-card
+                    height: 20
+                    size: 10
+
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card' 
+                        entity: sensor.scurone_sala # Change this to the entity you want to control
+                        name: Sala
+                        show_icon: true
+                        show_name: true # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 70px
+                            - height: 70px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'Aperto'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: '#ff9933'
+                        tap_action: none            
+                      - type: 'custom:button-card' 
+                        entity: sensor.lucernaio_studio # Change this to the entity you want to control
+                        name: Studio
+                        show_icon: true
+                        show_name: true # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 70px
+                            - height: 70px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'Aperto'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: '#ff9933'
+                        tap_action: none 
+
+                  - type:  custom:gap-card
+                    height: 40
+                    size: 10
+
+              - type: 'custom:mini-graph-card'
+                layout:
+                  grid-area: graph
+                entities:
+                  - entity: sensor.openweathermap_humidity
+                    name: Umidità
+                unit: '%'
+                tap_action: none
+                points_per_hour: 1
+                show:
+                  icon: false
+                  extrema: true
+                line_width: 2
+                height: 130
+                align_state: center
+                align_header: center
+                color_thresholds_transition: hard
+                color_thresholds:
+                  - value: 30
+                    color: '#ccf2ff'
+                  - value: 50
+                    color: '#80dfff'
+                  - value: 70
+                    color: '#33ccff'
+                  - value: 90
+                    color: '#00ace6'
+                  - value: 100
+                    color: '#0099ff'   
+                card_mod:
+                  style: |
+                    ha-card {
+                      height: 247px;
+                      background-color: var(--background-sidebar-sx);
+                      border-radius: 30px;
+                      box-shadow: none !important;
+                      }    
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+                               ######################################################################
+                               ##                                                                  ##
+                               ##                          SYSTEM VIEW                             ##
+                               ##                                                                  ##
+                               ######################################################################
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+  - title: System
+    path: system
+    icon: 'mdi:server'
+    panel: false
+    type: custom:grid-layout
+    layout:
+      grid-template-columns: 7% 70% 23%
+      grid-template-rows: 100%
+      grid-template-areas: |
+        "sidebarsx main sidebardx"
+    badges: []
+    cards:
+
+#####################################################################################################################################################
+#                                                                                                                                                   #
+#                                                    COLONNA 1 (SIDEBAR SX)                                                                         #
+#                                                                                                                                                   #
+#####################################################################################################################################################
+
+      - type: custom:stack-in-card
+        layout:
+          grid-area: sidebarsx
+        card_mod:
+          style: |
+            ha-card {
+              height: 100%;
+              background-color: var(--background-sidebar-sx);
+              }  
+        cards:
+          - type: 'custom:layout-card' #Another Grid Layout to keep a bit of space from left
+            layout_type: grid
+            layout: 
+              grid-template-columns: 100%
+              grid-template-rows: 100%
+              grid-template-areas: |
+                "sidebar"
+            cards:
+              - type: vertical-stack
+                layout:
+                  grid-area: sidebar
+                cards:
+                  - type: custom:gap-card
+                    height: 150
+                    size: 40
+                  - type: markdown
+                    content: |
+                      # {{states('sensor.sidebar_date2')}}
+                      # {{states('sensor.time')}}
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 15px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.09em';
+                            text-align: center;
+                          }
+                  - type: entities
+                    entities:
+                      - type: divider
+                    card_mod:
+                    style: |
+                      ha-card {
+                        height: 100%;
+                        box-shadow: none !important;
+                          --ha-card-background: none !important;
+                        } 
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:home-roof' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 50px
+                        - height: 50px
+                        - margin-left: 10px
+                        - margin-top: 0px
+                        - border-radius: 30px
+                        - box-shadow: |
+                              [[[ return states['sun.sun'].state == 'below_horizon'
+                              ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                              : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                              ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-tabletui/home
+                      haptic: light
+
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:floor-plan' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 50px
+                        - height: 50px
+                        - margin-left: 10px
+                        - margin-top: 10px
+                        - border-radius: 30px
+                        - box-shadow: |
+                              [[[ return states['sun.sun'].state == 'below_horizon'
+                              ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                              : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                              ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-tabletui/rooms
+                      haptic: light
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:server' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 50px
+                        - height: 50px
+                        - margin-left: 10px
+                        - margin-top: 10px
+                        - border-radius: 30px
+                        - border-width: 1px
+                        - border-style: solid
+                        - border-color: var(--paper-item-icon-active-color)
+                        - box-shadow: |
+                              [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                              ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--paper-item-icon-active-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-tabletui/system
+                      haptic: light
+                  - type: entities
+                    entities:
+                      - type: divider
+                    card_mod:
+                    style: |
+                      ha-card {
+                        height: 100%;
+                        box-shadow: none !important;
+                          --ha-card-background: none !important;
+                        } 
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:battery-charging-wireless' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 40px
+                        - height: 40px
+                        - margin-left: 15px
+                        - margin-top: 0px
+                        - border-radius: 30px
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    tap_action:
+                      action: call-service
+                      service: browser_mod.popup
+                      service_data: !include NdRUI_Tablet_Popup/batteries.yaml
+
+#####################################################################################################################################################
+#                                                                                                                                                   #
+#                                                    COLONNA 2 (CENTRALE)                                                                           #
+#                                                                                                                                                   #
+#####################################################################################################################################################
+
+      - type: vertical-stack
+        layout:
+          grid-area: main
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: 'custom:layout-card'
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 50% 50%
+                  grid-template-rows: 60% 40%
+                  grid-template-areas: |
+                    "nuc rpi"
+                    "omv pihole"
+                cards:
+
+                  - type: vertical-stack
+                    layout:
+                      grid-area: nuc
+                    cards:
+                      - type: markdown
+                        content: |
+                          # Intel NUC
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              margin-top: 2px;
+                              height: 20px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 20px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }
+                      - type: markdown
+                        content: >
+                          #  Versione HomeAssistant: {{states('sensor.hass_version_installed') }} 
+
+                          #  Ultima Release: {{states('sensor.hass_version_latest') }} 
+
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 70px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: thin;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }
+                          
+                      - type: horizontal-stack
+                        cards:                       
+                        - type: 'custom:mini-graph-card'
+                          color_type: card
+                          entities:
+                            - sensor.intel_nuc_cpu_temp
+                          height: 70
+                          line_width: 2
+                          hours_to_show: 24
+                          name: T° Intel NUC
+                          points_per_hour: 0.5
+                          align_state: center
+                          align_header: center
+                          show:
+                            extrema: true
+                            average: true
+                            labels: false 
+                          color_thresholds_transition: hard
+                          color_thresholds:
+                            - value: 0
+                              color: '#66ffff'
+                            - value: 40
+                              color: '#53ff1a'
+                            - value: 50
+                              color: '#ffff00'
+                            - value: 65
+                              color: '#ff8000'
+                            - value: 100
+                              color: '#ff0000'     
+                          card_mod:
+                            style: |
+                              ha-card {
+                                border-radius: 15px;
+                                height: 250px;
+                                } 
+
+                        - type: 'custom:mini-graph-card'
+                          color_type: card
+                          entities:
+                            - entity: sensor.processor_use
+                              name: CPU
+                              color: red
+                            - entity: sensor.memory_use_percent
+                              name: RAM
+                              color: orange
+                              show_state: true
+                          height: 70
+                          line_width: 2
+                          hours_to_show: 24
+                          points_per_hour: 0.5
+                          align_state: center
+                          align_header: center
+                          name: CPU & RAM
+                          icon: mdi:cpu-64-bit
+                          show:
+                            extrema: false
+                            average: false
+                            labels: false    
+                          card_mod:
+                            style: |
+                              ha-card {
+                                border-radius: 15px;
+                                height: 250px;
+                                }          
+
+                  - type: vertical-stack
+                    layout:
+                      grid-area: rpi
+                    cards:
+                      - type: markdown
+                        content: |
+                          # Raspberry Pi4:
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              margin-top: 2px;
+                              height: 20px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 20px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }
+                      - type: markdown
+                        content: >
+                          #  Ultimo riavvio: {{states('sensor.raspberry_last_boot') }} 
+
+                          #  Stato alimentazione: {% if is_state('binary_sensor.raspberry_under_voltage', 'off') %} OK {% else %} NON OK {% endif %} 
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 70px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: thin;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }
+                      - type: horizontal-stack
+                        cards:
+                        - type: 'custom:mini-graph-card'
+                          color_type: card
+                          entities:
+                            - sensor.raspberry_temperature
+                          height: 70
+                          line_width: 2
+                          hours_to_show: 24
+                          name: T° Raspberry Pi4
+                          points_per_hour: 0.5
+                          align_state: center
+                          align_header: center
+                          show:
+                            extrema: true
+                            average: true
+                            labels: false 
+                          color_thresholds_transition: hard
+                          color_thresholds:
+                            - value: 0
+                              color: '#66ffff'
+                            - value: 40
+                              color: '#53ff1a'
+                            - value: 50
+                              color: '#ffff00'
+                            - value: 65
+                              color: '#ff8000'
+                            - value: 100
+                              color: '#ff0000'     
+                          card_mod:
+                            style: |
+                              ha-card {
+                                border-radius: 15px;
+                                height: 250px;
+                                } 
+
+                        - type: 'custom:mini-graph-card'
+                          color_type: card
+                          entities:
+                            - entity: sensor.raspberry_cpu_usage
+                              name: CPU
+                              color: red
+                            - entity: sensor.raspberry_memory_use
+                              name: RAM
+                              color: orange
+                              show_state: true
+                          height: 70
+                          line_width: 2
+                          hours_to_show: 24
+                          points_per_hour: 0.5
+                          align_state: center
+                          align_header: center
+                          name: CPU & RAM
+                          icon: mdi:cpu-64-bit
+                          show:
+                            extrema: false
+                            average: false
+                            labels: false    
+                          card_mod:
+                            style: |
+                              ha-card {
+                                border-radius: 15px;
+                                height: 250px;
+                                }  
+
+                  - type: vertical-stack
+                    layout:
+                      grid-area: omv
+                    cards:
+                      - type: markdown
+                        content: |
+                          # Open Media Vault
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              margin-top: 2px;
+                              height: 20px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 20px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }         
+                      - type: markdown
+                        content: >
+                          #  NAS Uptime: {{states('sensor.omv_uptime') }} ore
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 60px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: thin;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }     
+                      - type: horizontal-stack
+                        cards:
+                          - type: 'custom:flex-horseshoe-card'
+                            card_mod:
+                              style: |
+                                ha-card {
+                                background-color: var(--primary-background-color)
+                                height: 170px;
+                                width: 170px;  
+                                border-radius: 30px;      
+                                }   
+                            entities:
+                              - entity: sensor.omv_nas6tb
+                                decimals: 0
+                                name: 'NAS'
+                                unit: '%'
+                                tap_action: none   
+                              - entity: sensor.omv_nas6tb
+                                attribute: Mountpoint
+                                decimals: 0
+                                tap_action: none
+                            show:
+                              horseshoe_style: 'lineargradient'
+                            layout:
+                              hlines:
+                                # A horizontal line. Not connected to an entity
+                                - id: 0
+                                  xpos: 50
+                                  ypos: 50
+                                  length: 50
+                                  styles:
+                                    - stroke: var(--primary-text-color);
+                                    - stroke-width: 5;
+                                    - stroke-linecap: round;
+                                    - opacity: 0.7;
+                              states:
+                                # States 0 refers to the first entity in the list, ie index 0
+                                - id: 0
+                                  entity_index: 0
+                                  xpos: 50
+                                  ypos: 42
+                                  styles:
+                                    - font-size: 3em;
+                                # States 1 refers to the second entity in the list, ie index 1
+                                - id: 1
+                                  entity_index: 1
+                                  xpos: 31
+                                  ypos: 65
+                                  styles:
+                                    - text-anchor: start;
+                                    - font-size: 1.5em;
+                              icons:
+                                # Icons 0 refers to the second entity in the list, ie index 1
+                                - id: 0
+                                  entity_index: 1
+                                  xpos: 28
+                                  ypos: 63
+                                  align: end
+                                  size: 1.3
+                              names:
+                                # Names 0 refers to the first entity in the list, ie index 0
+                                - id: 0
+                                  entity_index: 0
+                                  xpos: 50
+                                  ypos: 85
+                              
+                            # Scale set to 10 to 30 degrees celcius
+                            horseshoe_scale:
+                              min: 0
+                              max: 100
+                            # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                            # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                            color_stops:
+                              16: '#ffffff'
+                              17: '#e6f9ff'
+                              19: '#ccf2ff'
+                              21: '#b3ecff'
+                              22: '#99e6ff'
+                              23: '#80dfff'
+                              25: '#33ccff'
+
+                          - type: 'custom:flex-horseshoe-card'
+                            card_mod:
+                              style: |
+                                ha-card {
+                                background-color: var(--primary-background-color);
+                                height: 170px;
+                                width: 170px;  
+                                border-radius: 30px;      
+                                }   
+                            entities:
+                              - entity: sensor.omv_bkp
+                                decimals: 0
+                                name: 'Backup'
+                                unit: '%'
+                                tap_action: none   
+                              - entity: sensor.omv_bkp
+                                attribute: Mountpoint
+                                unit: ''
+                                tap_action: none
+                            show:
+                              horseshoe_style: 'lineargradient'
+                            layout:
+                              hlines:
+                                # A horizontal line. Not connected to an entity
+                                - id: 0
+                                  xpos: 50
+                                  ypos: 50
+                                  length: 50
+                                  styles:
+                                    - stroke: var(--primary-text-color);
+                                    - stroke-width: 5;
+                                    - stroke-linecap: round;
+                                    - opacity: 0.7;
+                              states:
+                                # States 0 refers to the first entity in the list, ie index 0
+                                - id: 0
+                                  entity_index: 0
+                                  xpos: 50
+                                  ypos: 42
+                                  styles:
+                                    - font-size: 3em;
+                                # States 1 refers to the second entity in the list, ie index 1
+                                - id: 1
+                                  entity_index: 1
+                                  xpos: 31
+                                  ypos: 65
+                                  styles:
+                                    - text-anchor: start;
+                                    - font-size: 1.5em;
+                              icons:
+                                # Icons 0 refers to the second entity in the list, ie index 1
+                                - id: 0
+                                  entity_index: 1
+                                  xpos: 28
+                                  ypos: 63
+                                  align: end
+                                  size: 1.3
+                              names:
+                                # Names 0 refers to the first entity in the list, ie index 0
+                                - id: 0
+                                  entity_index: 0
+                                  xpos: 50
+                                  ypos: 85
+                              
+                            # Scale set to 10 to 30 degrees celcius
+                            horseshoe_scale:
+                              min: 0
+                              max: 100
+                            # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                            # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                            color_stops:
+                              16: '#ffffff'
+                              17: '#e6f9ff'
+                              19: '#ccf2ff'
+                              21: '#b3ecff'
+                              22: '#99e6ff'
+                              23: '#80dfff'
+                              25: '#33ccff'
+
+              
+                  - type: vertical-stack
+                    layout:
+                      grid-area: pihole
+                    cards:
+                      - type: markdown
+                        content: |
+                          # PiHole
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              margin-top: 2px;
+                              height: 20px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 20px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }         
+                      - type: markdown
+                        content: >
+                          #  Totale Queries bloccate oggi: {{states('sensor.pi_hole_ads_blocked_today') }}
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 60px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: thin;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }     
+                      - type: 'custom:mini-graph-card'
+                        color_type: card
+                        entities:
+                          - entity: sensor.pi_hole_ads_percentage_blocked_today
+                            color: '#f205b3'
+                        name: '% Bloccate'
+                        height: 95
+                        hours_to_show: 24
+                        points_per_hour: 3600
+                        update_interval: 10
+                        aggregate_func: avg
+                        line_width: 5
+                        smoothing: false
+                        align_state: center
+                        align_header: center
+                        show:
+                          graph: bar
+                          icon: false
+                          name: false
+                          average: false
+                          extrema: false
+                        color_thresholds_transition: hard   
+                        tap_action: none 
+                        card_mod:
+                          style: |
+                            ha-card {
+                              height: 165px;
+                              background-color: var(--primary-background-color);
+                              border-radius: 15px;
+                              }  
+
+
+
+#####################################################################################################################################################
+#                                                                                                                                                   #
+#                                                    COLONNA 3 (SIDEBAR DX)                                                                         #
+#                                                                                                                                                   #
+#####################################################################################################################################################
+
+      - type: custom:stack-in-card #We need the Stack-in-Card only for the colo background (for some reason it doesn't work on layout-card-gridder)
+        layout:
+          grid-area: sidebardx
+        card_mod:
+          style: |
+            ha-card {
+              height: 100%;
+              background-color: var(--background-sidebar-sx);
+              } 
+        cards: 
+          - type: 'custom:layout-card'
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 5% 95%
+              grid-template-rows: 65% 35%
+              grid-template-areas: |
+                "free1 sidebar"
+                "graph graph"
+            cards:
+
+              - type: vertical-stack
+                layout:
+                  grid-area: sidebar
+                cards:
+                    
+                  - type:  custom:gap-card
+                    height: 20
+                    size: 10
+                  - type: horizontal-stack
+                    cards:
+                      - type: picture-entity
+                        show_name: false
+                        show_state: false
+                        action: none
+                        entity: person.andrea
+                        state_image:
+                          home: /local/propic/andre.jpg
+                          not_home: /local/propic/andregr.jpg
+                          Lavoro Andre: /local/propic/andregr.jpg
+                          Casa Pinto: /local/propic/andregr.jpg
+                        card_mod:
+                          style: |
+                            ha-card {
+                              height: 80px;
+                              width: 80px;
+                              
+                              background-color: var(--background-sidebar-sx);
+                              border-radius: 30px;
+                              } 
+                        tap_action: none
+                      - type: picture-entity
+                        show_name: false
+                        show_state: false
+                        action: none
+                        entity: person.mary
+                        state_image:
+                          home: /local/propic/mary.jpg
+                          not_home: /local/propic/marygr.jpg
+                          Lavoro Mary: /local/propic/marygr.jpg
+                          Casa Pinto: /local/propic/marygr.jpg
+                        card_mod:
+                          style: |
+                            ha-card {
+                              height: 80px;
+                              width: 80px;
+                              background-color: var(--background-sidebar-sx);
+                              border-radius: 30px;
+                              } 
+                        tap_action: none
+                  - type:  custom:gap-card
+                    height: 20
+                    size: 10
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card' 
+                        entity: input_select.cancello_button_card # Change this to the entity you want to control
+                        icon: 'mdi:gate'
+                        name: Cancello
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 5px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'cancello_on'
+                          icon: 'mdi:gate-open'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: call-service
+                          service: switch.toggle
+                          service_data: 
+                            entity_id: switch.cancello
+                          haptic: light
+
+                      - type: markdown
+                        content: |
+                          # Cancello
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 5px;
+                              margin-bottom: 1px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }                           
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card' 
+                        entity: input_select.sera_button_card # Change this to the entity you want to control
+                        icon: 'mdi:weather-night'
+                        name: Sera
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'sera_on'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: call-service
+                          service: script.turn_on
+                          service_data: 
+                            entity_id: script.casa_spegnimento_sera
+                          haptic: light
+
+                      - type: markdown
+                        content: |
+                          # Sera
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 1px;
+                              margin-bottom: 1px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }  
+
+                  - type: horizontal-stack
+                    cards:  
+                      - type: 'custom:button-card' 
+                        entity: sensor.raccolta_differenziata # Change this to the entity you want to control
+                        icon: 'mdi:trash-can-outline'
+                        name: Raccolta Differenziata
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                        - value: 'Organico'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        - value: 'Indifferenziata'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                        tap_action: none
+
+                      - type: markdown
+                        content: |
+                          # {{ states('sensor.raccolta_differenziata') }}
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 1px;
+                              margin-bottom: 1px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }   
+
+                  - type:  custom:gap-card
+                    height: 20
+                    size: 10
+
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card' 
+                        entity: sensor.scurone_sala # Change this to the entity you want to control
+                        name: Sala
+                        show_icon: true
+                        show_name: true # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 70px
+                            - height: 70px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'Aperto'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: '#ff9933'
+                        tap_action: none            
+                      - type: 'custom:button-card' 
+                        entity: sensor.lucernaio_studio # Change this to the entity you want to control
+                        name: Studio
+                        show_icon: true
+                        show_name: true # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 70px
+                            - height: 70px
+                            - margin: 10px
+                            - margin-bottom: 1px
+                            - margin-top: 1px
+                            - border-radius: 15px
+                            - border-width: 1px
+                            - border-style: solid
+                            - border-color: var(--primary-background-color)
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                        - value: 'Aperto'
+                          styles:
+                            card:
+                              - border-width: 2px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                    : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                  ]]]
+                              - border-color: var(--paper-item-icon-active-color)
+                            icon:
+                              - color: '#ff9933'
+                        tap_action: none 
+
+                  - type:  custom:gap-card
+                    height: 40
+                    size: 10
+
+              - type: 'custom:mini-graph-card'
+                layout:
+                  grid-area: graph
+                entities:
+                  - entity: sensor.openweathermap_humidity
+                    name: Umidità
+                unit: '%'
+                tap_action: none
+                points_per_hour: 1
+                show:
+                  icon: false
+                  extrema: true
+                line_width: 2
+                height: 130
+                align_state: center
+                align_header: center
+                color_thresholds_transition: hard
+                color_thresholds:
+                  - value: 30
+                    color: '#ccf2ff'
+                  - value: 50
+                    color: '#80dfff'
+                  - value: 70
+                    color: '#33ccff'
+                  - value: 90
+                    color: '#00ace6'
+                  - value: 100
+                    color: '#0099ff'   
+                card_mod:
+                  style: |
+                    ha-card {
+                      height: 247px;
+                      background-color: var(--background-sidebar-sx);
+                      border-radius: 30px;
+                      box-shadow: none !important;
+                      }    
