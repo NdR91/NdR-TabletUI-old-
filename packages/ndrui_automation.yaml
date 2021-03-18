@@ -1,0 +1,27 @@
+automation:
+
+  - id: set_theme_ndrui
+    alias: 'Frontend: Set NdRUI Theme'
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sun.sun
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: sun.sun
+          state: "above_horizon"
+        sequence:
+        - service: frontend.set_theme
+          data:
+            name: clear
+      - conditions:
+        - condition: state
+          entity_id: sun.sun
+          state: "below_horizon"
+        sequence:
+        - service: frontend.set_theme
+          data:
+            name: slate

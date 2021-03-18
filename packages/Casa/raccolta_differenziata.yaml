@@ -1,0 +1,108 @@
+sensor:
+  - platform: template
+    sensors:
+      raccolta_differenziata:
+        friendly_name: Raccolta Differenziata
+        icon_template: mdi:trash-can-outline
+        value_template: >
+          {% if now().weekday() in (1,) %} Nessuna raccolta oggi 
+          {% elif now().weekday() in (2,) %} Nessuna raccolta oggi 
+          {% elif now().weekday() in (3,) %} Organico
+          {% elif now().weekday() in (4,) %} Nessuna raccolta oggi 
+          {% elif now().weekday() in (5,) %} Indifferenziata
+          {% elif now().weekday() in (6,) %} Nessuna raccolta oggi 
+          {% elif now().weekday() in (7,) %} Organico
+          {% endif %}
+
+automation:
+
+  - alias: Notifica Telegram - Raccolta Differenziata - Reminder
+    trigger:
+      platform: time
+      at: '07:15:00'
+    condition: 
+      condition: time
+      weekday:
+        - tue
+        - thu
+    action:
+    - service: notify.casa
+      data:
+        message: |
+           Ricorda di portare fuori la spazzatura!
+        title: '🗑️'
+
+  - alias: Notifica Telegram - Raccolta Differenziata - Reminder2
+    trigger:
+      platform: time
+      at: '07:15:00'
+    condition: 
+      condition: time
+      weekday:
+        - sat
+    action:
+    - service: notify.casa
+      data:
+        message: |
+           Ricorda di portare fuori la spazzatura!
+        title: '🗑️'
+
+  - alias: Notifica Telegram - Raccolta Differenziata - Lunedì
+    trigger:
+      platform: time
+      at: '20:00:00'
+    condition: 
+      condition: time
+      weekday:
+        - sun
+    action:
+    - service: notify.casa
+      data:
+        message: |
+           PANNOLINI 👶🏻
+        title: '🗑️ Raccolta Differenziata di domani'
+
+  - alias: Notifica Telegram - Raccolta Differenziata - Martedì
+    trigger:
+      platform: time
+      at: '20:00:00'
+    condition: 
+      condition: time
+      weekday:
+        - mon
+    action:
+    - service: notify.casa
+      data:
+        message: |
+           ORGANICO 🥗🍔
+        title: '🗑️ Raccolta Differenziata di domani'
+
+  - alias: Notifica Telegram - Raccolta Differenziata - Giovedì
+    trigger:
+      platform: time
+      at: '20:00:00'
+    condition: 
+      condition: time
+      weekday:
+        - wed
+    action:
+    - service: notify.casa
+      data:
+        message: |
+           INDIFFERENZIATO 🗑️
+        title: '🗑️ Raccolta Differenziata di domani'
+
+  - alias: Notifica Telegram - Raccolta Differenziata - Sabato
+    trigger:
+      platform: time
+      at: '20:00:00'
+    condition: 
+      condition: time
+      weekday:
+        - fri
+    action:
+    - service: notify.casa
+      data:
+        message: |
+           ORGANICO 🥗🍔
+        title: '🗑️ Raccolta Differenziata di domani'
