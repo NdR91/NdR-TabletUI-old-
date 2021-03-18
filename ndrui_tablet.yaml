@@ -1,7 +1,6 @@
 title: Home 
 
 ####################### POPUPS #######################
-
 popup_cards: !include NdRUI/ndrui_tablet_popup.yaml
 
 views: 
