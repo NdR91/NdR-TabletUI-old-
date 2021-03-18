@@ -4,7 +4,7 @@
 <img src="/www/ui_tablet/screen/floorplan-l.png" width="1000" /> 
 
 <details><summary><b>More Screenshots</b></summary>
-<img src="/www/ui_tablet/screen/system-d.png" width="450" /> <img src="/www/ui_tablet/screen/dashboard-l.png" width="450" />     
+<img src="/www/ui_tablet/screen/system-d.png" width="420" /> <img src="/www/ui_tablet/screen/dashboard-l.png" width="420" />     
 </details>
 
 Hello guys, this is a new UI created for Tablet only.
