@@ -44,8 +44,9 @@ The first one, is supported only by Browser with dark mode detection:
 - Select Services;
 - Find the service called ```frontend.set_theme```;
 - Insert the following data:
-
-    ```name: Clear #or the name of your theme
-        mode: light```
+```
+name: Clear #or the name of your theme
+    mode: light
+```
 
 The way how to use those two themes, is also well explained by @N-l1 on his thread of [SoftUI](https://github.com/N-l1/lovelace-soft-ui).
