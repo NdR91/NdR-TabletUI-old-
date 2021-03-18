@@ -238,6 +238,9 @@ card:
   cards: 
     < Card...
   ```
+
+<img src="/www/ui_tablet/screen/climate-popup.png" width="400" /> <img src="/www/ui_tablet/screen/light.popup.png" width="400" /> 
+
   More info on Popups are available on [Browser Mod](https://github.com/thomasloven/hass-browser_mod) page.
 
 ### Floorplan
