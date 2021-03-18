@@ -231,9 +231,7 @@ card:
 
 ### Floorplan
 
-Creating a floorplan is quite long to explain. I suggest to see the [lukevink](https://github.com/lukevink/hass-config-lajv) page to have a full explanation of the whole procedure.
-
-Here I will give a quick cue:
+Creating a floorplan is quite long to explain, but I will give you a quick cue:
 
 1. Create your floorplan with SweetHome3d - I suggest this [Guide](https://aarongodfrey.dev/home%20automation/tips_for_creating_a_3d_floorplan_using_sweethome3d/) and this [Guide](https://community.home-assistant.io/t/3d-floorplan-using-lovelace-picture-elements-card/123357) to figure out how to do it;
 2. Using SweetHome3D, choose a good positioning to save some pictures of your floorplan - Use the previous guide, section [Rendering](https://aarongodfrey.dev/home%20automation/tips_for_creating_a_3d_floorplan_using_sweethome3d/#rendering). You will need the following pictures:
@@ -254,3 +252,4 @@ Here I will give a quick cue:
     <img src="/www/ui_tablet/floorplan/sala_luce2.png" width="600" /> 
     </details>
     Dont worry if you have more lights per each room: Home Assistant (with Picture Elements card) will use the CSS property filter "mix-blend-mode: lighten" to blend all the pictures with an excelent result.
+4. That's all! You now have all you need to build your Picture Elements card with your floorplan. Check the code on "Room Section" to see how tu build it. Remember that the order you place each element is very important, so starts with the pictures and then procees with the button cards to control your switches.
