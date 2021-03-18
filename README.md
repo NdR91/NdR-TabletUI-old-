@@ -113,7 +113,7 @@ style: |
    }
 ```
 
-<img src="/www/ui_tablet/screen/button-l.png" width="200" /> <img src="/www/ui_tablet/screen/button-d.png" width="200" /> 
+<img src="/www/ui_tablet/screen/button-l.png" width="400" /> <img src="/www/ui_tablet/screen/button-d.png" width="400" /> 
 
 Notice that this is the minimum code you need to apply the style, but of course you can customize it with more variables.
 The way how to use those themes and button cards, is also well explained by @N-l1 on his thread of [SoftUI](https://github.com/N-l1/lovelace-soft-ui).
