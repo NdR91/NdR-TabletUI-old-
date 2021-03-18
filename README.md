@@ -22,6 +22,7 @@ Optional:
 
 ## Getting Started
 
+### Themes
 First of all, we need to set-up two themes (Light and Dark mode). You can create your own or use both [Clear](https://github.com/naofireblade/clear-theme) and [Slate](https://github.com/seangreen2/slate_theme) you find in this repo.
 If you want to create your own theme, be sure to set the following values:
 
@@ -32,4 +33,17 @@ primary-background-color: 'var(--background-color)'
 ```
 Those values are highly used on the UI code.
 
-The way how to use those two themes, is well explained by @N-l1 on his thread of [SoftUI](https://github.com/N-l1/lovelace-soft-ui).
+### Automation
+
+Now, we need to set our two Themes to be used by HomeAssistant as Light and Dark themes.
+To do this, we have two options.
+
+The first one, is supported only by Browser with dark mode detection:
+    - Go to Developer Tools;
+    - Select Services
+    - Find the service called ```frontend.set_theme```
+    - Insert the followinf data:
+    ```name: Clear #or the name of your theme
+        mode: light```
+
+The way how to use those two themes, is also well explained by @N-l1 on his thread of [SoftUI](https://github.com/N-l1/lovelace-soft-ui).
