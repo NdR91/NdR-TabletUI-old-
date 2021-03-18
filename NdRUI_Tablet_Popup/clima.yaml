@@ -1,0 +1,146 @@
+title: Clima
+style:
+  $: |
+    .mdc-dialog {
+      backdrop-filter: blur(17px);
+      -webkit-backdrop-filter: blur(17px);
+      background: rgba(0,0,0,0.25);
+    }
+    .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+      background: none !important;
+      box-shadow: none;
+      border-radius: 0px;
+    }
+hide_header: true
+auto_close: false
+large: true
+card:
+  type: vertical-stack
+  cards:
+    - type: horizontal-stack
+      cards:
+        - type: custom:mini-climate
+          entity: climate.daikin_sala # Change this to the entity you want to control
+          scale: 0.85
+          temperature:
+            unit: '°C'
+            source:
+              entity: sensor.daikin_sala_inside_temperature
+          icon: mdi:snowflake
+          card_mod:
+            style: |
+              ha-card {
+                border-radius: 15px;
+                }
+        - type: custom:mini-climate
+          entity: climate.daikin_camera # Change this to the entity you want to control
+          scale: 0.85
+          temperature:
+            unit: '°C'
+            source:
+              entity: sensor.daikin_camera_inside_temperature
+          icon: mdi:snowflake
+          card_mod:
+            style: |
+              ha-card {
+                border-radius: 15px;
+                }
+        - type: custom:mini-climate
+          entity: climate.daikin_studio # Change this to the entity you want to control
+          scale: 0.85
+          temperature:
+            unit: '°C'
+            source:
+              entity: sensor.daikin_studio_inside_temperature
+          icon: mdi:snowflake
+          card_mod:
+            style: |
+              ha-card {
+                border-radius: 15px;
+                }
+    - type: horizontal-stack
+      cards:
+        - type: 'custom:mini-graph-card'
+          entities:
+            - sensor.daikin_sala_inside_temperature
+          height: 70
+          hours_to_show: 24
+          name: Sala
+          points_per_hour: 0.5
+          line_width: 2
+          show:
+            extrema: true
+            labels: false
+          color_thresholds_transition: hard
+          color_thresholds:
+            - value: 5
+              color: '#ccf2ff'
+            - value: 15
+              color: '#80dfff'
+            - value: 25
+              color: '#33ccff'
+            - value: 30
+              color: '#00ace6'
+            - value: 40
+              color: '#0099ff' 
+          card_mod:
+            style: |
+              ha-card {
+                border-radius: 15px;
+                }
+        - type: 'custom:mini-graph-card'
+          entities:
+            - sensor.daikin_camera_inside_temperature
+          height: 70
+          hours_to_show: 24
+          name: Camera
+          points_per_hour: 0.5
+          line_width: 2
+          show:
+            extrema: true
+            labels: false
+          color_thresholds_transition: hard
+          color_thresholds:
+            - value: 5
+              color: '#ccf2ff'
+            - value: 15
+              color: '#80dfff'
+            - value: 25
+              color: '#33ccff'
+            - value: 30
+              color: '#00ace6'
+            - value: 40
+              color: '#0099ff' 
+          card_mod:
+            style: |
+              ha-card {
+                border-radius: 15px;
+                }
+        - type: 'custom:mini-graph-card'
+          entities:
+            - sensor.daikin_studio_inside_temperature
+          height: 70
+          hours_to_show: 24
+          name: Studio
+          points_per_hour: 0.5
+          line_width: 2
+          show:
+            extrema: true
+            labels: false
+          color_thresholds_transition: hard
+          color_thresholds:
+            - value: 5
+              color: '#ccf2ff'
+            - value: 15
+              color: '#80dfff'
+            - value: 25
+              color: '#33ccff'
+            - value: 30
+              color: '#00ace6'
+            - value: 40
+              color: '#0099ff' 
+          card_mod:
+            style: |
+              ha-card {
+                border-radius: 15px;
+                }

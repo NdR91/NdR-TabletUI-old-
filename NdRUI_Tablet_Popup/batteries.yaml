@@ -1,0 +1,38 @@
+title: Clima
+style:
+  $: |
+    .mdc-dialog {
+      backdrop-filter: blur(17px);
+      -webkit-backdrop-filter: blur(17px);
+      background: rgba(0,0,0,0.25);
+    }
+    .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+      background: none !important;
+      box-shadow: none;
+      border-radius: 0px;
+    }
+hide_header: true
+auto_close: false
+large: true
+card:
+
+  type: entities
+  entities:  
+    - type: custom:battery-entity-row
+      entity: sensor.scurone_sala_battery
+      name: Sensore Scurone - Aqara
+    - type: custom:battery-entity-row
+      entity: sensor.lucernaio_studio_battery
+      name: Sensore Lucernaio Studio - Aqara
+    - type: custom:battery-entity-row
+      entity: sensor.cabina_armadio_battery
+      name: Sensore Cabina Armadio - Aqara
+    - type: custom:battery-entity-row
+      entity: sensor.pulsante_sala_battery
+      name: Pulsante Sala - Aqara
+    - type: custom:battery-entity-row
+      entity: sensor.pir_1_battery
+      name: PIR 1 - Sonoff
+    - type: custom:battery-entity-row
+      entity: sensor.pir_2_battery
+      name: PIR 2 - Sonoff

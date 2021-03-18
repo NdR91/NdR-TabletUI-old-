@@ -1,0 +1,336 @@
+  title: Assorbimenti
+  style:
+    $: |
+      .mdc-dialog {
+        backdrop-filter: blur(17px);
+        -webkit-backdrop-filter: blur(17px);
+        background: rgba(0,0,0,0.25);
+      }
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+        box-shadow: none;
+        border-radius: 0px;
+      }
+  hide_header: true
+  auto_close: false
+  large: true
+  card:
+    type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: |
+                  # Lavatrice
+                style:
+                  .: |
+                    ha-card {
+                      --ha-card-background: none !important;
+                      box-shadow: none !important;
+                      height: 10px;
+                      margin-top: 5px;
+                    }
+                  ha-markdown:
+                    $: |
+                      h1 {
+                        font-size: 20px;
+                        font-weight: bold;
+                        font-family: Helvetica;
+                        letter-spacing: '-0.01em';
+                      }               
+              - type: horizontal-stack
+                cards:
+                  - type: entities
+                    entities:  
+                      - entity: switch.presa_lavatrice
+                        type: custom:multiple-entity-row
+                        name: Stato
+                        toggle: true
+                        entities: 
+                          - entity: binary_sensor.stato_lavatrice
+                            name: Lavatrice
+                      - type: section
+                      - entity: sensor.presa_lavatrice_w
+                        type: custom:multiple-entity-row
+                        name: Consumo
+                        icon: mdi:power-socket-eu
+                        show_state: false
+                        entities:
+                          - entity: sensor.presa_lavatrice_w
+                            name: Attuale
+                          - entity: sensor.consumo_mensile_lavatrice_kwhm
+                            name: Consumo Mensile
+              - type: 'custom:mini-graph-card'        
+                entities:
+                  - sensor.presa_lavatrice_w
+                height: 70
+                hours_to_show: 24
+                name: Consumi
+                line_width: 2
+                points_per_hour: 2
+                show:
+                  extrema: true
+                  labels: false
+                color_thresholds_transition: hard    
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: 15px;
+                      }   
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: |
+                  # Asciugatrice
+                style:
+                  .: |
+                    ha-card {
+                      --ha-card-background: none !important;
+                      box-shadow: none !important;
+                      height: 10px;
+                      margin-top: 5px;
+                    }
+                  ha-markdown:
+                    $: |
+                      h1 {
+                        font-size: 20px;
+                        font-weight: bold;
+                        font-family: Helvetica;
+                        letter-spacing: '-0.01em';
+                      }                  
+              - type: horizontal-stack
+                cards:
+                  - type: entities
+                    entities:  
+                      - entity: switch.presa_asciugatrice
+                        type: custom:multiple-entity-row
+                        name: Stato
+                        toggle: true
+                        entities: 
+                          - entity: binary_sensor.stato_asciugatrice
+                            name: Asciugatrice
+                      - type: section
+                      - entity: sensor.presa_asciugatrice_w
+                        type: custom:multiple-entity-row
+                        name: Consumo
+                        icon: mdi:power-socket-eu
+                        show_state: false
+                        entities:
+                          - entity: sensor.presa_asciugatrice_w
+                            name: Attuale
+                          - entity: sensor.consumo_mensile_asciugatrice_kwhm
+                            name: Consumo Mensile
+              - type: 'custom:mini-graph-card'        
+                entities:
+                  - sensor.presa_asciugatrice_w
+                height: 70
+                hours_to_show: 24
+                name: Consumi
+                line_width: 2
+                points_per_hour: 2
+                show:
+                  extrema: true
+                  labels: false
+                color_thresholds_transition: hard    
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: 15px;
+                      }   
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: |
+                  # Frigorifero
+                style:
+                  .: |
+                    ha-card {
+                      --ha-card-background: none !important;
+                      box-shadow: none !important;
+                      height: 10px;
+                      margin-top: 5px;
+                    }
+                  ha-markdown:
+                    $: |
+                      h1 {
+                        font-size: 20px;
+                        font-weight: bold;
+                        font-family: Helvetica;
+                        letter-spacing: '-0.01em';
+                      }              
+              - type: horizontal-stack
+                cards:
+                  - type: entities
+                    entities:  
+                      - entity: switch.presa_frigorifero
+                        type: custom:multiple-entity-row
+                        name: Stato
+                        toggle: true
+                        entities: 
+                          - entity: binary_sensor.stato_frigorifero
+                            name: Frigorifero
+                      - type: section
+                      - entity: sensor.presa_frigorifero_w
+                        type: custom:multiple-entity-row
+                        name: Consumo
+                        icon: mdi:power-socket-eu
+                        show_state: false
+                        entities:
+                          - entity: sensor.presa_frigorifero_w
+                            name: Attuale
+                          - entity: sensor.consumo_mensile_frigorifero_kwhm
+                            name: Consumo Mensile
+              - type: 'custom:mini-graph-card'        
+                entities:
+                  - sensor.presa_frigorifero_w
+                height: 70
+                hours_to_show: 24
+                name: Consumi
+                points_per_hour: 4
+                line_width: 2
+                show:
+                  extrema: true
+                  labels: false
+                color_thresholds_transition: hard    
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: 15px;
+                      }            
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: |
+                  # Microonde
+                style:
+                  .: |
+                    ha-card {
+                      --ha-card-background: none !important;
+                      box-shadow: none !important;
+                      height: 10px;
+                      margin-top: 5px;
+                    }
+                  ha-markdown:
+                    $: |
+                      h1 {
+                        font-size: 20px;
+                        font-weight: bold;
+                        font-family: Helvetica;
+                        letter-spacing: '-0.01em';
+                      }                  
+              - type: horizontal-stack
+                cards:
+                  - type: entities
+                    entities:  
+                      - entity: switch.presa_microonde
+                        type: custom:multiple-entity-row
+                        name: Stato
+                        toggle: true
+                        entities: 
+                          - entity: binary_sensor.stato_microonde
+                            name: Microonde
+                      - type: section
+                      - entity: sensor.presa_microonde_w
+                        type: custom:multiple-entity-row
+                        name: Consumo
+                        icon: mdi:power-socket-eu
+                        show_state: false
+                        entities:
+                          - entity: sensor.presa_microonde_w
+                            name: Attuale
+                          - entity: sensor.consumo_mensile_microonde_kwhm
+                            name: Consumo Mensile
+              - type: 'custom:mini-graph-card'        
+                entities:
+                  - sensor.presa_microonde_w
+                height: 70
+                hours_to_show: 24
+                name: Consumi
+                points_per_hour: 1
+                line_width: 2
+                aggregate_func: max
+                show:
+                  # graph: bar
+                  extrema: true
+                  labels: false
+                color_thresholds_transition: hard    
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: 15px;
+                      }
+                tap_action:
+                  action: null
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: |
+                  # Luci
+                style:
+                  .: |
+                    ha-card {
+                      --ha-card-background: none !important;
+                      box-shadow: none !important;
+                      height: 10px;
+                      margin-top: 5px;
+                    }
+                  ha-markdown:
+                    $: |
+                      h1 {
+                        font-size: 20px;
+                        font-weight: bold;
+                        font-family: Helvetica;
+                        letter-spacing: '-0.01em';
+                      }                 
+              - type: horizontal-stack
+                cards:
+                  - type: entities
+                    entities:  
+                      - entity: light.led_cucina
+                        type: custom:multiple-entity-row
+                        name: Stato
+                        toggle: true
+                        entities: 
+                          - entity: sensor.shelly_led_cucina_stato
+                            name: Presa
+                      - type: section
+                      - entity: sensor.led_cucina_w
+                        type: custom:multiple-entity-row
+                        name: Consumo
+                        icon: mdi:power-socket-eu
+                        show_state: false
+                        entities:
+                          - entity: sensor.led_cucina_w
+                            name: Attuale
+                          - entity: sensor.consumo_mensile_led_cucina_kwhm
+                            name: Consumo Mensile
+              - type: 'custom:mini-graph-card'        
+                entities:
+                  - sensor.led_cucina_w
+                height: 70
+                hours_to_show: 24
+                name: Consumi
+                points_per_hour: 1
+                line_width: 2
+                aggregate_func: max
+                show:
+                  # graph: bar
+                  extrema: true
+                  labels: false
+                color_thresholds_transition: hard    
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: 15px;
+                      }
+                tap_action:
+                  action: null                

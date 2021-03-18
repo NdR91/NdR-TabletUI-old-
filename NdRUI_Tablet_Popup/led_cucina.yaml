@@ -1,0 +1,56 @@
+title: Led Cucina
+style:
+  $: |
+    .mdc-dialog {
+      backdrop-filter: blur(17px);
+      -webkit-backdrop-filter: blur(17px);
+      background: rgba(0,0,0,0.25);
+    }
+    .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+      background: none !important;
+      box-shadow: none;
+      border-radius: 0px;
+    }
+  .: |
+    :host {
+      --mdc-dialog-min-height: 100%;
+      --mdc-dialog-min-width: 100%;
+      --mdc-dialog-max-width: 100%;
+    }
+hide_header: true
+auto_close: false
+large: false
+card:
+  type: custom:light-popup-card
+  entity: light.led_cucina
+  icon: mdi:led-strip
+  actionsInARow: 2
+  brightnessWidth: 150px
+  brightnessHeight: 400px
+  switchWidth: 150px
+  switchHeight: 400px
+  actions:
+    - service: light.turn_on
+      service_data:
+        entity_id: light.led_cucina
+        brightness_pct: 25
+      color: "#ffffb3"
+      name: 25%
+    - service: light.turn_on
+      service_data:
+        entity_id: light.led_cucina
+        brightness_pct: 50
+      color: "#ffff66"
+      name: 50%
+    - service: light.turn_on
+      service_data:
+        entity_id: light.led_cucina
+        brightness_pct: 25
+      color: "#ffff33"
+      name: 75%
+    - service: light.turn_on
+      service_data:
+        entity_id: light.led_cucina
+        brightness_pct: 50
+      color: "#ffff00"
+      name: 100%

@@ -1,0 +1,39 @@
+title: Camera
+style:
+  $: |
+    .mdc-dialog {
+      backdrop-filter: blur(17px);
+      -webkit-backdrop-filter: blur(17px);
+      background: rgba(0,0,0,0.25);
+    }
+    .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+      background: none !important;
+      box-shadow: none;
+      border-radius: 0px;
+    }
+hide_header: true
+auto_close: true
+large: true
+card:
+  type: vertical-stack
+  cards:
+    - type: horizontal-stack
+      cards:
+        - type: picture-glance
+          entities:
+            - entity: binary_sensor.movimento_ingresso # Change this to the entity you want to control
+          camera_image: camera.yi_camera_ingresso
+        - type: picture-glance
+          entities:
+            - entity: binary_sensor.movimento_scale # Change this to the entity you want to control
+          camera_image: camera.yi_camera_scale
+    - type: horizontal-stack
+      cards:
+        - type: picture-glance
+          entities:
+            - entity: binary_sensor.movimento_sala # Change this to the entity you want to control
+          camera_image: camera.yi_camera_sala
+        - type: picture-glance
+          entities:
+            - entity: binary_sensor.movimento_camera # Change this to the entity you want to control
+          camera_image: camera.yi_camera_camera
