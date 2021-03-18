@@ -104,5 +104,57 @@ style: |
    }
 ```
 Notice that this is the minimum code you need to apply the style, but of course you can customize it with more variables.
-
 The way how to use those themes and button cards, is also well explained by @N-l1 on his thread of [SoftUI](https://github.com/N-l1/lovelace-soft-ui).
+
+### Layout Card
+
+Another important thing is the structure of the UI, because every view has 3 main zones:
+- The Left sidebar;
+- The Main area;
+- The Right sidebar.
+
+To achieve this result, you have to start every view with the following code:
+
+```yaml
+  - title: Home #Choose the name you want
+    path: home #Choose the path you want
+    icon: 'mdi:home-roof' #Choose the icon you want
+    panel: false
+    type: custom:grid-layout
+    layout:
+      grid-template-columns: 7% auto 23% #You can customize the size of both sidebars
+      grid-template-rows: 100%
+      grid-template-areas: |
+        "sidebarleft main sidebarright"
+    badges: []
+    cards:
+```
+You also will see a grid template inside the 3 zones. This is used on the Main area in order to set the order of the cars, or on the Right sidebar to leave some empty space. See the examples below.
+
+<details><summary><b>Main area config:</b></summary>
+
+```yaml
+- type: custom:stack-in-card #We need the Stack-in-Card only to apply the background color (for some reason it doesn't work on layout-card)
+  layout:
+      grid-area: sidebarright #The position of this card
+  card_mod:
+      style: |
+      ha-card {
+          height: 100%;
+          background-color: var(--background-sidebar-sx);
+          } 
+  cards: 
+    - type: 'custom:layout-card'
+      layout_type: grid
+      layout_options:
+          grid-template-columns: 5% 95%
+          grid-template-rows: 65% 35%
+          grid-template-areas: |
+          "free1 sidebar"
+          "graph graph"
+     cards:
+```
+</details>
+
+You can go deeper on how the Grid Layout works on the [Layout Card](https://github.com/thomasloven/lovelace-layout-card) page.
+
