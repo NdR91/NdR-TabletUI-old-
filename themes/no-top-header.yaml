@@ -1,0 +1,7 @@
+no-top-header:
+  card-mod-theme: no-top-header
+
+  card-mod-root: |
+    app-toolbar {
+      display: none;
+    }
