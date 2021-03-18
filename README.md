@@ -1,6 +1,7 @@
 # NdR TabletUI
 
-<img src="/www/ui_tablet/screen/dashboard-d.png" width="400" /> <img src="/www/ui_tablet/screen/dashboard-l.png" width="400" /> 
+<img src="/www/ui_tablet/screen/dashboard-d.png" width="1000" /> 
+<img src="/www/ui_tablet/screen/dashboard-l.png" width="400" /> 
 
 
 Hello guys, this is a new UI created for Tablet only.
