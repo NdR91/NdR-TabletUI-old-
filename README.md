@@ -238,4 +238,10 @@ Here I will give a quick cue:
 1. Create your floorplan with SweetHome3d - I suggest this [Guide](https://aarongodfrey.dev/home%20automation/tips_for_creating_a_3d_floorplan_using_sweethome3d/) to figure out how to do it;
 2. Using SweetHome3D, choose a good positioning to save some pictures of your floorplan - Use the previous guide, section [Rendering](https://aarongodfrey.dev/home%20automation/tips_for_creating_a_3d_floorplan_using_sweethome3d/#rendering). You will need the following pictures:
 
-    - One pic with your floorplan during daytime (Note: this is the only one Pic which is optional)
+    - [ ] One pic of your floorplan during daytime, lights turned off (Note: this is the only one Pic which is optional);
+    - [x] One pic of your floorplan during nighttime, lights turned off;
+    - [x] One pic per each light turned on. This means that if you have 10 lights, you need 10 pictures. Use the nighttime "base" to do it;
+
+    So at this time you might have 1 or 2 pictures (depending by what you decided for the first option) + a number of pictures equal to the number of the lights you want to show on your Floorplan.
+3. Use Photoshop, Pixelmator or similar to cut the edges of the whole floorplan (daytime + nightime) and every single room. See the two examples below:
+    
