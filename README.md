@@ -1,7 +1,7 @@
-## NdR-TabletUI
+# NdR-TabletUI
 
 Hello guys, this is a new UI created for Tablet only.
-As usual, any suggestion is always appreciated.
+As usual, any suggestion is appreciated.
 
 This UI is based on the following custom components:
 
@@ -20,5 +20,16 @@ Optional:
 - [Atomic Calendar Revive](https://github.com/marksie1988/atomic-calendar-revive)
 - [Mini Climate Card](https://github.com/artem-sedykh/mini-climate-card)
 
-# Getting Started
+## Getting Started
 
+First of all, we need to set-up two themes (Light and Dark mode). You can create your own or use both [Clear](https://github.com/naofireblade/clear-theme) and [Slate](https://github.com/seangreen2/slate_theme) you find in this repo.
+If you want to create your own theme, be sure to set the following values:
+
+```
+background-color:
+background-sidebar-sx:
+primary-background-color: 'var(--background-color)'
+```
+Those values are highly used on the UI code.
+
+The way how to use those two themes, is well explained by @N-l1 on his thread of [SoftUI](https://github.com/N-l1/lovelace-soft-ui).
