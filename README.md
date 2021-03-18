@@ -235,7 +235,7 @@ Creating a floorplan is quite long to explain. I suggest to see the [lukevink](h
 
 Here I will give a quick cue:
 
-1- Create your floorplan with SweetHome3d - I suggest this [Guide](https://aarongodfrey.dev/home%20automation/tips_for_creating_a_3d_floorplan_using_sweethome3d/) to figure out how to do it;
-2- Using SweetHome3D, choose a good positioning to save some pictures of your floorplan - Use the previous guide, section [Rendering](https://aarongodfrey.dev/home%20automation/tips_for_creating_a_3d_floorplan_using_sweethome3d/#rendering). You will need the following pictures:
+1. Create your floorplan with SweetHome3d - I suggest this [Guide](https://aarongodfrey.dev/home%20automation/tips_for_creating_a_3d_floorplan_using_sweethome3d/) to figure out how to do it;
+2. Using SweetHome3D, choose a good positioning to save some pictures of your floorplan - Use the previous guide, section [Rendering](https://aarongodfrey.dev/home%20automation/tips_for_creating_a_3d_floorplan_using_sweethome3d/#rendering). You will need the following pictures:
 
-- One pic with your floorplan during daytime (Note: this is the only one Pic which is optional)
+    - One pic with your floorplan during daytime (Note: this is the only one Pic which is optional)
