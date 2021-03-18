@@ -243,13 +243,13 @@ Creating a floorplan is quite long to explain, but I will give you a quick cue:
     So at this time you might have 1 or 2 pictures (depending by what you decided for the first option) + a number of pictures equal to the number of the lights you want to show on your Floorplan.
 3. Use Photoshop, Pixelmator or similar to cut the edges of the whole floorplan (daytime + nightime) and every single room. See the two examples below
     <details><summary><b>Night Time Floorplan</b></summary>
-    <img src="/www/ui_tablet/floorplan/casa-notte.png" width="600" /> 
+    <img src="/www/ui_tablet/floorplan/casa-notte.png" width="800" /> 
     </details>
     <details><summary><b>Livingroom Light 1 turned on</b></summary>
-    <img src="/www/ui_tablet/floorplan/sala_luce1.png" width="600" /> 
+    <img src="/www/ui_tablet/floorplan/sala_luce1.png" width="800" /> 
     </details>
     <details><summary><b>Livingroom Light 2 turned on</b></summary>
-    <img src="/www/ui_tablet/floorplan/sala_luce2.png" width="600" /> 
+    <img src="/www/ui_tablet/floorplan/sala_luce2.png" width="800" /> 
     </details>
     Dont worry if you have more lights per each room: Home Assistant (with Picture Elements card) will use the CSS property filter "mix-blend-mode: lighten" to blend all the pictures with an excelent result.
-4. That's all! You now have all you need to build your Picture Elements card with your floorplan. Check the code on "Room Section" to see how tu build it. Remember that the order you place each element is very important, so starts with the pictures and then procees with the button cards to control your switches.
+4. That's all! You now have all you need to build your Picture Elements card with your floorplan. Check the code on "Room Section" to see how tu build it. Remember that the order you place each element is very important, so starts with the pictures and then proceed with the "state icon" elements to control your switches.
