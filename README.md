@@ -1,7 +1,7 @@
 # NdR TabletUI
 
 <img src="/www/ui_tablet/screen/dashboard-d.png" width="1000" /> 
-<img src="/www/ui_tablet/screen/dashboard-l.png" width="1100" /> 
+<img src="/www/ui_tablet/screen/dashboard-l.png" width="1000" /> 
 
 
 Hello guys, this is a new UI created for Tablet only.
@@ -257,3 +257,5 @@ Creating a floorplan is quite long to explain, but I will give you a quick cue:
     </details>
     Dont worry if you have more lights per each room: Home Assistant (with Picture Elements card) will use the CSS property filter "mix-blend-mode: lighten" to blend all the pictures with an excelent result.
 4. That's all! You now have all you need to build your Picture Elements card with your floorplan. Check the code on "Room Section" to see how tu build it. Remember that the order you place each element is very important, so starts with the pictures and then proceed with the "state icon" elements to control your switches.
+
+<img src="/www/ui_tablet/screen/floorplan.gif" width="6000" /> 
