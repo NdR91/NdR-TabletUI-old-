@@ -206,14 +206,6 @@ You can go deeper on how the Grid Layout works on the [Layout Card](https://gith
 Currently, popups are a work in progress, due to the fact that recently the custom component was updated with some new features wich will be added to this UI.
 Further update will become available soon, but meanwhile you an use this setup to get it working.
 
-The first few lines of the UI, must contain the path where you will store your popup cards:
-
-```yaml
-title: Home 
-popup_cards: !include NdRUI/ndrui_tablet_popup.yaml # <--- Use your path
-views: 
-```
-
 In order to use a popup, you need to add the following code to the card:
 
 ```yaml
