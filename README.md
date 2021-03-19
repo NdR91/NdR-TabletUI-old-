@@ -204,7 +204,7 @@ You can go deeper on how the Grid Layout works on the [Layout Card](https://gith
 ### Popups
 
 Currently, popups are a work in progress, due to the fact that recently the custom component was updated with some new features wich will be added to this UI.
-Further update will become available soon, but meanwhile you an use this setup to get it working.
+Further update will become available soon, but meanwhile you can use this setup to get it working.
 
 In order to use a popup, you need to add the following code to the card:
 
