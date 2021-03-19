@@ -42,7 +42,7 @@ views:
 #####################################################################################################################################################
 
       - type: custom:stack-in-card #Used to apply styling, as Card-Mod doesn't work on Vertical-Stack
-        layout:
+        view_layout:
           grid-area: sidebarleft
         card_mod:
           style: |
@@ -60,7 +60,7 @@ views:
                 "sidebar"
             cards:
               - type: vertical-stack
-                layout:
+                view_layout:
                   grid-area: sidebar
                 cards:
                   - type: custom:gap-card
@@ -186,7 +186,7 @@ views:
 #####################################################################################################################################################
 
       - type: vertical-stack
-        layout:
+        view_layout:
           grid-area: main
         cards:
           - type: vertical-stack
@@ -209,7 +209,7 @@ views:
                         #     grid-area: free
                     
                         - type: 'custom:simple-weather-card'
-                          layout:
+                          view_layout:
                             grid-area: wheater
                           backdrop:
                             fade: true
@@ -230,7 +230,7 @@ views:
                           tap_action: none                   
                 
                         - type: 'custom:atomic-calendar-revive'
-                          layout:
+                          view_layout:
                             grid-area: calendar
                           entities:
                             - entity: calendar.casa # Use your Calendar entity
@@ -248,7 +248,7 @@ views:
                           tap_action: more-info
                 
                         - type: vertical-stack
-                          layout:
+                          view_layout:
                             grid-area: climate
                           cards:
                             - type: markdown
@@ -615,7 +615,7 @@ views:
 
                             
                         - type: vertical-stack
-                          layout:
+                          view_layout:
                               grid-area: camera 
                           cards:
                             - type: markdown
@@ -690,7 +690,7 @@ views:
                                         service_data: !include NdRUI_Tablet_Popup/camera.yaml
 
                         - type: vertical-stack
-                          layout:
+                          view_layout:
                             grid-area: power
                           cards:
                             - type:  custom:gap-card
@@ -734,7 +734,7 @@ views:
 #####################################################################################################################################################
 
       - type: custom:stack-in-card #We need the Stack-in-Card only for the colo background (for some reason it doesn't work on layout-card-gridder)
-        layout:
+        view_layout:
           grid-area: sidebarright
         card_mod:
           style: |
@@ -754,7 +754,7 @@ views:
             cards:
 
               - type: vertical-stack
-                layout:
+                view_layout:
                   grid-area: sidebar
                 cards:
                     
@@ -1079,7 +1079,7 @@ views:
                     size: 10
 
               - type: 'custom:mini-graph-card'
-                layout:
+                view_layout:
                   grid-area: graph
                 entities:
                   - entity: sensor.openweathermap_humidity
@@ -1154,7 +1154,7 @@ views:
 #####################################################################################################################################################
 
       - type: custom:stack-in-card
-        layout:
+        view_layout:
           grid-area: sidebarleft
         card_mod:
           style: |
@@ -1172,7 +1172,7 @@ views:
                 "sidebar"
             cards:
               - type: vertical-stack
-                layout:
+                view_layout:
                   grid-area: sidebar
                 cards:
                   - type: custom:gap-card
@@ -1298,7 +1298,7 @@ views:
 #####################################################################################################################################################
 
       - type: vertical-stack
-        layout:
+        view_layout:
           grid-area: main
         cards:
           - type:  custom:gap-card
@@ -1814,7 +1814,7 @@ views:
 #####################################################################################################################################################
 
       - type: custom:stack-in-card #We need the Stack-in-Card only for the colo background (for some reason it doesn't work on layout-card-gridder)
-        layout:
+        view_layout:
           grid-area: sidebarright
         card_mod:
           style: |
@@ -1834,7 +1834,7 @@ views:
             cards:
 
               - type: vertical-stack
-                layout:
+                view_layout:
                   grid-area: sidebar
                 cards:
                     
@@ -2159,7 +2159,7 @@ views:
                     size: 10
 
               - type: 'custom:mini-graph-card'
-                layout:
+                view_layout:
                   grid-area: graph
                 entities:
                   - entity: sensor.openweathermap_humidity
@@ -2233,7 +2233,7 @@ views:
 #####################################################################################################################################################
 
       - type: custom:stack-in-card
-        layout:
+        view_layout:
           grid-area: sidebarleft
         card_mod:
           style: |
@@ -2251,7 +2251,7 @@ views:
                 "sidebar"
             cards:
               - type: vertical-stack
-                layout:
+                view_layout:
                   grid-area: sidebar
                 cards:
                   - type: custom:gap-card
@@ -2395,7 +2395,7 @@ views:
 #####################################################################################################################################################
 
       - type: vertical-stack
-        layout:
+        view_layout:
           grid-area: main
         cards:
           - type: vertical-stack
@@ -2411,7 +2411,7 @@ views:
                 cards:
 
                   - type: vertical-stack
-                    layout:
+                    view_layout:
                       grid-area: nuc
                     cards:
                       - type: markdown
@@ -2521,7 +2521,7 @@ views:
                                 }          
 
                   - type: vertical-stack
-                    layout:
+                    view_layout:
                       grid-area: rpi
                     cards:
                       - type: markdown
@@ -2629,7 +2629,7 @@ views:
                                 }  
 
                   - type: vertical-stack
-                    layout:
+                    view_layout:
                       grid-area: omv
                     cards:
                       - type: markdown
@@ -2831,7 +2831,7 @@ views:
 
               
                   - type: vertical-stack
-                    layout:
+                    view_layout:
                       grid-area: pihole
                     cards:
                       - type: markdown
@@ -2911,7 +2911,7 @@ views:
 #####################################################################################################################################################
 
       - type: custom:stack-in-card #We need the Stack-in-Card only for the colo background (for some reason it doesn't work on layout-card-gridder)
-        layout:
+        view_layout:
           grid-area: sidebarright
         card_mod:
           style: |
@@ -2931,7 +2931,7 @@ views:
             cards:
 
               - type: vertical-stack
-                layout:
+                view_layout:
                   grid-area: sidebar
                 cards:
                     
@@ -3256,7 +3256,7 @@ views:
                     size: 10
 
               - type: 'custom:mini-graph-card'
-                layout:
+                view_layout:
                   grid-area: graph
                 entities:
                   - entity: sensor.openweathermap_humidity

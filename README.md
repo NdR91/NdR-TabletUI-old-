@@ -156,7 +156,7 @@ You also will see a grid template inside the 3 zones. This is used on the Main a
 
 ```yaml
 - type: vertical-stack
-  layout:
+  view_layout:
       grid-area: main #The position of this card
   cards:
       - type: vertical-stack
@@ -178,7 +178,7 @@ You also will see a grid template inside the 3 zones. This is used on the Main a
 
 ```yaml
 - type: custom:stack-in-card #We need the Stack-in-Card only to apply the background color
-  layout:
+  view_layout:
       grid-area: sidebarright #The position of this card
   card_mod:
       style: |
