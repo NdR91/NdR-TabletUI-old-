@@ -39,7 +39,13 @@ Optional:
 ## Getting Started
 
 ### Themes
-First of all, we need to set-up two themes (Light and Dark mode). You can create your own or use both [Clear](https://github.com/naofireblade/clear-theme) and [Slate](https://github.com/seangreen2/slate_theme) you find in this repo.
+First of all, we need to set-up two themes (Light and Dark mode). 
+If you want to use the same stuff shown on this repo, download the whole [Theme](https://github.com/NdR91/NdR-TabletUI/tree/master/themes) folder and place it in your /config Home Assistant path.
+Those themes are modified in order to use Card-Mod and remove the header. They also have the string ```background-sidebar-sx``` which is used on this UI.
+
+#### Alternatives
+
+You can also create your own themes or use both [Clear](https://github.com/naofireblade/clear-theme) and [Slate](https://github.com/seangreen2/slate_theme).
 If you want to create your own theme, be sure to set the following values:
 
 ```yaml
