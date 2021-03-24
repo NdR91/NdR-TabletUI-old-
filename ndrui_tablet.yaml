@@ -25,7 +25,7 @@ views:
     panel: false
     type: custom:grid-layout
     layout:
-      grid-template-columns: 7% auto 23%
+      grid-template-columns: 9% auto 23%
       grid-template-rows: 100%
       grid-template-areas: |
         "sidebarleft main sidebarright"
@@ -97,8 +97,8 @@ views:
                     show_name: false # Change to "true" if you need to show the Button name
                     styles:
                       card:
-                        - width: 50px
-                        - height: 50px
+                        - width: 55px
+                        - height: 55px
                         - margin-left: 10px
                         - margin-top: 0px
                         - border-radius: 30px
@@ -124,8 +124,8 @@ views:
                     show_name: false # Change to "true" if you need to show the Button name
                     styles:
                       card:
-                        - width: 50px
-                        - height: 50px
+                        - width: 55px
+                        - height: 55px
                         - margin-left: 10px
                         - margin-top: 10px
                         - border-radius: 30px
@@ -147,8 +147,8 @@ views:
                     show_name: false # Change to "true" if you need to show the Button name
                     styles:
                       card:
-                        - width: 50px
-                        - height: 50px
+                        - width: 55px
+                        - height: 55px
                         - margin-left: 10px
                         - margin-top: 10px
                         - border-radius: 30px
@@ -1136,7 +1136,7 @@ views:
     panel: false
     type: custom:grid-layout
     layout:
-      grid-template-columns: 7% auto 23%
+      grid-template-columns: 9% auto 23%
       grid-template-rows: 100%
       grid-template-areas: |
         "sidebarleft main sidebarright"
@@ -1187,10 +1187,10 @@ views:
                       ha-markdown:
                         $: |
                           h1 {
-                            font-size: 15px;
+                            font-size: 14px;
                             font-weight: bold;
                             font-family: Helvetica;
-                            letter-spacing: '-0.09em';
+                            letter-spacing: '-0.15em';
                             text-align: center;
                           }
                   - type: entities
@@ -1209,8 +1209,8 @@ views:
                     show_name: false # Change to "true" if you need to show the Button name
                     styles:
                       card:
-                        - width: 50px
-                        - height: 50px
+                        - width: 55px
+                        - height: 55px
                         - margin-left: 10px
                         - margin-top: 0px
                         - border-radius: 30px
@@ -1233,8 +1233,8 @@ views:
                     show_name: false # Change to "true" if you need to show the Button name
                     styles:
                       card:
-                        - width: 50px
-                        - height: 50px
+                        - width: 55px
+                        - height: 55px
                         - margin-left: 10px
                         - margin-top: 10px
                         - border-radius: 30px
@@ -1259,8 +1259,8 @@ views:
                     show_name: false # Change to "true" if you need to show the Button name
                     styles:
                       card:
-                        - width: 50px
-                        - height: 50px
+                        - width: 55px
+                        - height: 55px
                         - margin-left: 10px
                         - margin-top: 10px
                         - border-radius: 30px
@@ -2215,7 +2215,7 @@ views:
     panel: false
     type: custom:grid-layout
     layout:
-      grid-template-columns: 7% 70% 23%
+      grid-template-columns: 9% auto 23%
       grid-template-rows: 100%
       grid-template-areas: |
         "sidebarleft main sidebarright"
@@ -2266,10 +2266,10 @@ views:
                       ha-markdown:
                         $: |
                           h1 {
-                            font-size: 15px;
+                            font-size: 14px;
                             font-weight: bold;
                             font-family: Helvetica;
-                            letter-spacing: '-0.09em';
+                            letter-spacing: '-0.15em';
                             text-align: center;
                           }
                   - type: entities
@@ -2288,8 +2288,8 @@ views:
                     show_name: false # Change to "true" if you need to show the Button name
                     styles:
                       card:
-                        - width: 50px
-                        - height: 50px
+                        - width: 55px
+                        - height: 55px
                         - margin-left: 10px
                         - margin-top: 0px
                         - border-radius: 30px
@@ -2312,8 +2312,8 @@ views:
                     show_name: false # Change to "true" if you need to show the Button name
                     styles:
                       card:
-                        - width: 50px
-                        - height: 50px
+                        - width: 55px
+                        - height: 55px
                         - margin-left: 10px
                         - margin-top: 10px
                         - border-radius: 30px
@@ -2335,8 +2335,8 @@ views:
                     show_name: false # Change to "true" if you need to show the Button name
                     styles:
                       card:
-                        - width: 50px
-                        - height: 50px
+                        - width: 55px
+                        - height: 55px
                         - margin-left: 10px
                         - margin-top: 10px
                         - border-radius: 30px
@@ -2371,8 +2371,8 @@ views:
                     show_name: false # Change to "true" if you need to show the Button name
                     styles:
                       card:
-                        - width: 40px
-                        - height: 40px
+                        - width: 45px
+                        - height: 45px
                         - margin-left: 15px
                         - margin-top: 0px
                         - border-radius: 30px
