@@ -68,12 +68,12 @@ The first one, is supported only by Browser with dark mode detection:
 - Insert the following data:
     ```yaml
     name: clear #or the name of your light theme
-      mode: light 
+    mode: light 
     ```
 - Repeat the same with the following data:
     ```yaml
     name: slate #or the name of your dark theme
-      mode: dark 
+    mode: dark 
     ``` 
  
 The second one uses an automation to switch the Light and Dark themes:
