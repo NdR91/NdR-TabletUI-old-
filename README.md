@@ -63,7 +63,7 @@ A little explanation is necessay for the header too. Inside the [Theme](https://
 - ```no-top-header.yaml```
 
 Those two files contain the necessary instructions to hide (no-header) or compress (no-top-header) the Header.
-You can pick one of them by changing the last line of both themes file. See below:
+You can pick one of them by changing the last line of both theme files. See below:
 
 ```yaml
   #HEADER
