@@ -76,7 +76,8 @@ You can pick one of them by changing the last line of both theme files. See belo
       app-toolbar {
         display: none;
       }
-  card-mod-theme: no-header #This removes the Header. Change to no-top-header if you want Compact Header```
+  card-mod-theme: no-header #This removes the Header. Change to no-top-header if you want Compact Header
+  ```
 
 ### Automation
 
