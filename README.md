@@ -35,6 +35,9 @@ Optional:
 - [ ] [Stack In Card](https://github.com/custom-cards/stack-in-card)
 - [ ] [Atomic Calendar Revive](https://github.com/marksie1988/atomic-calendar-revive)
 - [ ] [Mini Climate Card](https://github.com/artem-sedykh/mini-climate-card)
+- [ ] [Gap Card](https://github.com/thomasloven/lovelace-gap-card)
+- [ ] [Simple Weather Card](https://github.com/kalkih/simple-weather-card)
+- [ ] [Config Template Card](https://github.com/iantrich/config-template-card)
 
 ## Getting Started
 
@@ -44,7 +47,6 @@ If you want to use the same stuff shown on this repo, download the whole [Theme]
 Those themes are modified in order to use Card-Mod and remove the header. They also have the string ```background-sidebar-sx``` which is used on this UI.
 
 #### Alternatives
-
 You can also create your own themes or use both [Clear](https://github.com/naofireblade/clear-theme) and [Slate](https://github.com/seangreen2/slate_theme).
 If you want to create your own theme, be sure to set the following values:
 
@@ -54,6 +56,27 @@ background-sidebar-sx:
 primary-background-color: 'var(--background-color)'
 ```
 Those values are highly used on the UI code.
+
+#### Header
+A little explanation is necessay for the header too. Inside the [Theme](https://github.com/NdR91/NdR-TabletUI/tree/master/themes) you'll find two files:
+- ```no-header.yaml```
+- ```no-top-header.yaml```
+
+Those two files contain the necessary instructions to hide (no-header) or compress (no-top-header) the Header.
+You can select your favourite one by changing the last line of both themes file. See below:
+
+```yaml
+  #HEADER
+  card-mod-root-yaml: |
+    paper-tabs$: |
+      .not-visible {
+        display: none;
+      }
+    .: |
+      app-toolbar {
+        display: none;
+      }
+  card-mod-theme: no-header #This removes the Header. Change to no-top-header if you want Compact Header```
 
 ### Automation
 
